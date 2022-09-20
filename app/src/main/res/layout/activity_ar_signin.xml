@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArSignin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="222dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/sports" />
+
+        <TextView
+            android:id="@+id/EngLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="10dp"
+            android:text="English"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/split"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="-70dp"
+            android:text="."
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ArabicLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="225dp"
+            android:layout_marginTop="-33dp"
+            android:text="العربية"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/emailLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="254dp"
+            android:layout_marginTop="50dp"
+            android:text="البريد الإلكتروني"
+            android:textColor="@color/myDarkGreen"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.177"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.315" />
+
+        <EditText
+            android:id="@+id/LoginEmail"
+            android:layout_width="310dp"
+            android:layout_height="55dp"
+            android:ems="10"
+            android:hint="example@example.com"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/textGray"
+            android:layout_marginLeft="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.455"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.137" />
+
+        <TextView
+            android:id="@+id/passwordLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="287dp"
+            android:layout_marginTop="20dp"
+            android:text="كلمة المرور"
+            android:textColor="@color/myDarkGreen"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.447" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/ArLoginPass"-->
+<!--            android:layout_width="310dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginLeft="45dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="********"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:textColor="@color/textGray"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.455"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/LoginEmail"-->
+<!--            app:layout_constraintVertical_bias="0.126" -->
+<!--            />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/LoginPass"
+            android:layout_width="310dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="0dp"
+            app:hintTextColor="@color/textGray"
+            app:boxBackgroundColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:placeholderText="اكتب كلمة المرور"
+            app:placeholderTextColor="@color/lightGray"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PassEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/ArforgetPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="10dp"
+            android:text="هل نسيت كلمة السر؟"
+            android:textColor="@color/myDarkGreen"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/LoginBtn"
+            app:layout_constraintEnd_toEndOf="@+id/LoginPass"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/LoginPass"
+            app:layout_constraintTop_toBottomOf="@+id/LoginPass"
+            app:layout_constraintVertical_bias="0.457" />
+
+
+
+        <Button
+            android:id="@+id/ArLoginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/myDarkGreen"
+            android:text="تسجيل الدخول"
+            android:textColor="@color/white"
+            android:layout_marginLeft="147dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LoginPass"
+            app:layout_constraintVertical_bias="0.293" />
+
+        <TextView
+            android:id="@+id/ArDontHavAcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="30dp"
+            android:text="ليس لديك حساب؟"
+            android:textColor="@color/textGray"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LoginBtn"
+            app:layout_constraintVertical_bias="0.175" />
+
+        <TextView
+            android:id="@+id/ArCreateAcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:text="إنشاء حساب"
+            android:textColor="@color/myDarkGreen"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintVertical_bias="0.078" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+
