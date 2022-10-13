@@ -19,7 +19,7 @@ class ArSignin : AppCompatActivity() {
             startActivity(intent)
         }
         changeLang.setOnClickListener{
-            val intent = Intent(this , MainActivity::class.java)
+            val intent = Intent(this , Signin::class.java)
             startActivity(intent)
         }
     }

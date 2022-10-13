@@ -1,18 +1,52 @@
 package com.example.hatrick
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.example.hatrick.databinding.ActivityCreateAccBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 
 class CreateAcc : AppCompatActivity() {
 
-    lateinit var binding: ActivityCreateAccBinding
-    lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var binding: ActivityCreateAccBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
+    fun basicReadWrite() {
+        // [START write_message]
+        // Write a message to the database
+        val database = Firebase.database
+        val myRef = database.getReference("https://hatrick-main-default-rtdb.firebaseio.com")
+
+        myRef.setValue("Hello, World!")
+        // [END write_message]
+
+        // [START read_message]
+        // Read from the database
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val value = dataSnapshot.getValue<String>()
+                Log.d(TAG, "Value is: $value")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
+        // [END read_message]
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_acc)
@@ -25,7 +59,7 @@ class CreateAcc : AppCompatActivity() {
         val signInLink = findViewById<TextView>(R.id.signIn)
 
         signInLink.setOnClickListener {
-            val intent = Intent(this , MainActivity::class.java)
+            val intent = Intent(this , Signin::class.java)
             startActivity(intent)
         }
 
@@ -39,8 +73,8 @@ class CreateAcc : AppCompatActivity() {
             val gender =binding.gender.checkedRadioButtonId.toString()
             val phone =binding.phoneBox.text.toString()
             val email =binding.emailBox.text.toString()
-            val pass =binding.passwordbox.editText.toString()
-            val confPass =binding.confpasswordbox.editText.toString()
+            val pass =binding.passwordbox.text.toString()
+            val confPass =binding.confpasswordbox.text.toString()
             val name = fname + " " + lname
             val DOB = DDOB + MDOB + YDOB
 
@@ -52,7 +86,7 @@ class CreateAcc : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener {
                         if (it.isSuccessful)
                         {
-                            val intent = Intent(this , MainActivity::class.java)
+                            val intent = Intent(this , Signin::class.java)
                             startActivity(intent)
 
                         }
@@ -62,7 +96,7 @@ class CreateAcc : AppCompatActivity() {
                     }
                 }
                 else {
-                    Toast.makeText(this, "Password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show()
                 }
             }else {
                 Toast.makeText(this, "check all", Toast.LENGTH_SHORT).show()
