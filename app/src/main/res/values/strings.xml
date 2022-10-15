@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Hatrick</string>
+    <string name="football">Football</string>
+    <string name="number_of_fields">number of fields</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
+    <string name="field_name">Field name</string>
+    <string name="location">Location</string>
+    <string name="the_rate">The Rate</string>
 </resources>
