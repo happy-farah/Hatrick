@@ -27,32 +27,6 @@ class CreateAcc : AppCompatActivity() {
     private lateinit var database: DatabaseReference
 
 
-//    fun basicReadWrite() {
-//        // [START write_message]
-//        // Write a message to the database
-//        val database = Firebase.database
-//        val myRef = database.getReference("https://hatrick-main-default-rtdb.firebaseio.com")
-//
-//        myRef.setValue("Hello, World!")
-//        // [END write_message]
-//
-//        // [START read_message]
-//        // Read from the database
-//        myRef.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                val value = dataSnapshot.getValue<String>()
-//                Log.d(TAG, "Value is: $value")
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                // Failed to read value
-//                Log.w(TAG, "Failed to read value.", error.toException())
-//            }
-//        })
-//        // [END read_message]
-//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_acc)
@@ -96,7 +70,7 @@ class CreateAcc : AppCompatActivity() {
                         if (it.isSuccessful)
                         {
                             database = FirebaseDatabase.getInstance().getReference("Users")
-                            val User = User (getCurrentUserID(), fname,lname,phone)
+                            val User = User (getCurrentUserID(), fname,lname,phone,email)
                             val UserFireData = FirebaseFirestore.getInstance()
                             UserFireData.collection("users").document(getCurrentUserID()).set(User,
                                 SetOptions.merge()).addOnSuccessListener {

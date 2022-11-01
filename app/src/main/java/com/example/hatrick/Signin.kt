@@ -32,7 +32,7 @@ class Signin : AppCompatActivity() {
                 firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
                     if (it.isSuccessful)
                     {
-                        val intent = Intent(this , ArCreateAcc::class.java)
+                        val intent = Intent(this , MainActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
 

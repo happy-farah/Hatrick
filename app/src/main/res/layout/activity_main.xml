@@ -1,221 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        android:orientation="vertical">
+    </FrameLayout>
 
-<!--&lt;!&ndash;        <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/AppImg"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="222dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:scaleType="fitXY"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintHorizontal_bias="0.6"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintVertical_bias="0.0"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:srcCompat="@drawable/sports"&ndash;&gt;-->
-<!--&lt;!&ndash;            tools:ignore="InvalidId" />&ndash;&gt;-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav">
 
-<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/EngLab"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="140dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="10dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:text="English"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textSize="16sp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textStyle="bold" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/split"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="200dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="-70dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:text="."&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textSize="60sp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textStyle="bold" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/ArabicLab"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="225dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="-33dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:text="العربية"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textSize="16sp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textStyle="bold" />&ndash;&gt;-->
-<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:id="@+id/emailLab"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:text="E-mail"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textColor="@color/myDarkGreen"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginLeft="40dp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginTop="50dp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textSize="16sp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:textStyle="bold"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.177"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintVertical_bias="0.315" />&ndash;&gt;-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/LoginEmail"-->
-<!--            android:layout_width="310dp"-->
-<!--            android:layout_height="55dp"-->
-<!--            android:layout_marginLeft="40dp"-->
-<!--            android:ems="10"-->
-<!--            android:hint="example@example.com"-->
-<!--            android:inputType="textEmailAddress"-->
-<!--            android:textColor="@color/textGray"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.455"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/imageView"-->
-<!--            app:layout_constraintVertical_bias="0.137" />-->
-<!--    <TextView-->
-<!--        android:id="@+id/passwordLab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Password"-->
-<!--        android:textColor="@color/myDarkGreen"-->
-<!--        android:layout_marginLeft="40dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:textSize="16sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.19"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.447" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/LoginPass"-->
-<!--        android:layout_width="310dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="********"-->
-<!--        android:inputType="textPassword"-->
-<!--        android:textColor="@color/textGray"-->
-<!--        android:layout_marginLeft="40dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.455"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/LoginEmail"-->
-<!--        app:layout_constraintVertical_bias="0.126"-->
-<!--        />-->
-<!--&lt;!&ndash;        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/LoginPass"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="310dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="55dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="40dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="0dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:hintTextColor="@color/textGray"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:boxBackgroundColor="@color/white"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintHorizontal_bias="0.5"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:placeholderText="Type Your Password"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:placeholderTextColor="@color/lightGray"&ndash;&gt;-->
-<!--&lt;!&ndash;            app:passwordToggleEnabled="true">&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
-<!--&lt;!&ndash;                android:id="@+id/PassEt"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:inputType="textPassword"&ndash;&gt;-->
-<!--&lt;!&ndash;                />&ndash;&gt;-->
-<!--&lt;!&ndash;        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:id="@+id/forgetPass"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Forgot your password?"-->
-<!--        android:textColor="#009900"-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_marginLeft="40dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/LoginBtn"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/LoginPass"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/LoginPass"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/LoginPass"-->
-<!--        app:layout_constraintVertical_bias="0.457" />-->
-
-
-
-<!--    <Button-->
-<!--        android:id="@+id/signinBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="@color/myDarkGreen"-->
-<!--        android:text="Sign in"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:layout_marginLeft="160dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/LoginPass"-->
-<!--        app:layout_constraintVertical_bias="0.293" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/DontHavAcc"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Don't have an account? "-->
-<!--        android:textColor="@color/textGray"-->
-<!--        android:textSize="16sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:layout_marginLeft="120dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/LoginBtn"-->
-<!--        app:layout_constraintVertical_bias="0.175" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/CreateAcc"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Create Account"-->
-<!--        android:textColor="#009900"-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginLeft="150dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:textStyle="bold"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView8"-->
-<!--        app:layout_constraintVertical_bias="0.078" />-->
-
-
-
-    </LinearLayout>
-   </ScrollView>
-
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+</androidx.constraintlayout.widget.ConstraintLayout>
