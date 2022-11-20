@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:title="Settings"
         android:id="@+id/settings"
-        android:icon="@drawable/ic_baseline_settings_24"/>
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="ifRoom|withText"
+    />
     <item android:title="Games"
         android:id="@+id/games"
-        android:icon="@drawable/ic_baseline_event_available_24"/>
+        android:icon="@drawable/ic_baseline_event_available_24"
+        app:showAsAction="ifRoom|withText"
+        />
     <item android:title="Home"
         android:id="@+id/home"
-        android:icon="@drawable/ic_baseline_home_24"/>
+        android:icon="@drawable/ic_baseline_home_24"
+        app:showAsAction="ifRoom|withText"
+        />
     <item android:title="Activites"
         android:id="@+id/activites"
-        android:icon="@drawable/ic_baseline_access_time_24"/>
+        android:icon="@drawable/ic_baseline_access_time_24"
+        app:showAsAction="ifRoom|withText"
+        />
     <item android:title="Profile"
         android:id="@+id/profile"
-        android:icon="@drawable/ic_baseline_person_24"/>
+        android:icon="@drawable/ic_baseline_person_24"
+        app:showAsAction="ifRoom|withText"
+        />
 </menu>

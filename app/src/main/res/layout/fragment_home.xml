@@ -10,8 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Profile">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,15 +18,15 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/footballCont"
-                android:layout_width="350dp"
+                android:id="@+id/footballCard"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="50dp"
+                android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/myDarkGreen"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true"
+                app:cardElevation="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +70,7 @@
                         android:id="@+id/footballRulesImg"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginStart="240dp"
+                        android:layout_marginStart="220dp"
                         android:layout_marginTop="-70dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/football_rules" />
@@ -80,7 +79,7 @@
                         android:id="@+id/footballRulesLab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="237dp"
+                        android:layout_marginStart="217dp"
                         android:layout_marginBottom="10dp"
                         android:text="Game Rules"
                         android:textColor="@color/myDarkGreen"
@@ -91,15 +90,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/basketballCont"
-                android:layout_width="350dp"
+                android:id="@+id/basketballCard"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/orange"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true"
+                app:cardElevation="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +143,7 @@
                         android:id="@+id/basketballRulesImg"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginStart="240dp"
+                        android:layout_marginStart="220dp"
                         android:layout_marginTop="-75dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/basketball_rules" />
@@ -153,7 +152,7 @@
                         android:id="@+id/basketballRulesLab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="237dp"
+                        android:layout_marginStart="217dp"
                         android:layout_marginBottom="10dp"
                         android:text="Game Rules"
                         android:textColor="@color/orange"
@@ -164,15 +163,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tennisCont"
-                android:layout_width="350dp"
+                android:id="@+id/tennisCard"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/tennisColor"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true"
+                app:cardElevation="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +216,7 @@
                         android:id="@+id/tennisRulesImg"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginStart="240dp"
+                        android:layout_marginStart="220dp"
                         android:layout_marginTop="-75dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/tennis_rules" />
@@ -226,7 +225,7 @@
                         android:id="@+id/tennisRulesLab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="237dp"
+                        android:layout_marginStart="217dp"
                         android:layout_marginBottom="10dp"
                         android:text="Game Rules"
                         android:textColor="@color/tennisColor"

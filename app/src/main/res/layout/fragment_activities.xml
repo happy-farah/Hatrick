@@ -12,5 +12,11 @@
             android:text="Activities Fragment"
             android:textSize="26dp"
             android:layout_gravity="center"/>
+        <com.google.android.material.navigationrail.NavigationRailView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </com.google.android.material.navigationrail.NavigationRailView>
 
 </FrameLayout>

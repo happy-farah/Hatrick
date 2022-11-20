@@ -2,6 +2,7 @@ package com.example.hatrick
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.get
 import com.example.hatrick.databinding.ActivityAccountBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,7 +20,7 @@ class Account : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
         val UserFireData = FirebaseFirestore.getInstance()
-        UserFireData.collection("users").whereEqualTo("customerID", getCurrentUserID2())
+        UserFireData.collection("users").whereEqualTo("customerID", getCurrentUserID())
             .get().addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
                 if (it.isSuccessful) {
@@ -39,11 +40,11 @@ class Account : AppCompatActivity() {
 
 
 
-fun getCurrentUserID2(): String {
-    val currentUser = FirebaseAuth.getInstance().currentUser
-    var currentUserID = ""
-    if (currentUser != null) {
-        currentUser.uid.also { currentUserID = it }
-    }
-    return currentUserID
-}
+//fun getCurrentUserID2(): String {
+//    val currentUser = FirebaseAuth.getInstance().currentUser
+//    var currentUserID = ""
+//    if (currentUser != null) {
+//        currentUser.uid.also { currentUserID = it }
+//    }
+//    return currentUserID
+//}

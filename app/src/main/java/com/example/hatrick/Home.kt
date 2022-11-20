@@ -1,10 +1,15 @@
 package com.example.hatrick
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,14 +34,44 @@ class Home : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+//        val FH = FootballHome()
+//        val fh : FragmentManager =
+//        fh.beginTransaction().add(R.id.home, FH).commit()
+//
+
+        val v : View = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val fCArd = v.findViewById<CardView>(R.id.footballCard)
+        fCArd.setOnClickListener {
+
+            var dial = FootballHome()
+            dial.show(childFragmentManager,"FootballHome")
+
+        }
+        val FF = v.findViewById<TextView>(R.id.footballLab)
+        FF.setOnClickListener {
+                Toast.makeText(context,"Football", Toast.LENGTH_SHORT).show()
+
+        }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return v
     }
 
+//    private fun replaceFragment(fragment : Fragment){
+//
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.frame_layout,fragment)
+//        fragmentTransaction.commit()
+//
+//
+//    }
     companion object {
         /**
          * Use this factory method to create a new instance of
