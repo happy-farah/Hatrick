@@ -52,7 +52,7 @@ class Signin : AppCompatActivity() {
         val changeLang = findViewById<TextView>(R.id.ArabicLab)
 
         createAcc.setOnClickListener {
-            val intent = Intent(this,CreateAcc::class.java)
+            val intent = Intent(this, CreateAcc::class.java)
             startActivity(intent)
         }
         changeLang.setOnClickListener{

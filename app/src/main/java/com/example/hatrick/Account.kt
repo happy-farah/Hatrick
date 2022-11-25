@@ -40,7 +40,7 @@ class Account : AppCompatActivity() {
 
 
 
-//fun getCurrentUserID2(): String {
+//fun getCurrentUserID(): String {
 //    val currentUser = FirebaseAuth.getInstance().currentUser
 //    var currentUserID = ""
 //    if (currentUser != null) {
