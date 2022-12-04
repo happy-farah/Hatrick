@@ -6,10 +6,10 @@ import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 
-class facilityy : AppCompatActivity() {
+class Field : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_facilityy)
+        setContentView(R.layout.activity_field)
         val imageSlider = findViewById<ImageSlider>(R.id.imageSlider)
         val imageList = ArrayList<SlideModel>()
 
@@ -17,8 +17,6 @@ class facilityy : AppCompatActivity() {
         imageList.add(SlideModel("https://lh5.googleusercontent.com/p/AF1QipPJ6jAMFUmfeRK8a4K_YwgvsYI_l-CPiJwACQdU=w750-h401-p-k-no"))
         imageList.add(SlideModel("https://lh5.googleusercontent.com/p/AF1QipPQsoHN47xpQojOsHMwdJGuXh-UQsNOy78pH4Fm=w750-h813-p-k-no"))
         imageList.add(SlideModel("https://lh5.googleusercontent.com/p/AF1QipMNGdwqd9f8aIQUiAxKgazap2qL462bXL_k5Hm9=w750-h813-p-k-no"))
-
         imageSlider.setImageList(imageList, ScaleTypes.FIT)
-
     }
 }

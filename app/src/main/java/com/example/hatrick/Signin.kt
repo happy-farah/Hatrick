@@ -10,47 +10,43 @@ import com.example.hatrick.databinding.ActivitySigninBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class Signin : AppCompatActivity() {
-
     lateinit var binding: ActivitySigninBinding
     lateinit var firebaseAuth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivitySigninBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
-
-
         binding.signinBtn.setOnClickListener {
             val email =binding.LoginEmail.text.toString()
-            val pass =binding.LoginPass.text.toString()
+            val password =binding.LoginPass.text.toString()
 
-            if (email.isNotEmpty() && pass.isNotEmpty())
+            if (email.isNotEmpty() && password.isNotEmpty())
             {
-                firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
+                firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
                     if (it.isSuccessful)
                     {
                         val intent = Intent(this , MainActivity::class.java)
                         startActivity(intent)
-                        Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
-
                     }
                     else{
                         Toast.makeText(this,it.exception.toString() , Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-            else {
-                Toast.makeText(this, "empty ", Toast.LENGTH_SHORT).show()
+            else if (email.isEmpty()){
+                Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
             }
-
+            else if (password.isEmpty()){
+                Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(this, "Please enter your email and password", Toast.LENGTH_SHORT).show()
+            }
         }
-
         val createAcc = findViewById<TextView>(R.id.CreateAcc)
         val changeLang = findViewById<TextView>(R.id.ArabicLab)
-
         createAcc.setOnClickListener {
             val intent = Intent(this, CreateAcc::class.java)
             startActivity(intent)
@@ -59,8 +55,5 @@ class Signin : AppCompatActivity() {
             val intent = Intent(this , ArSignin::class.java)
             startActivity(intent)
         }
-
-
-
     }
 }

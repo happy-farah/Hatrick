@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Settings"
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_baseline_star_rate_24"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+    <item android:title="Games"
+        android:id="@+id/games"
+        android:icon="@drawable/ic_baseline_event_available_24"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+    <item android:title="Activites"
+        android:id="@+id/activites"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+</menu>

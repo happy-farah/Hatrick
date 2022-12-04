@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.hatrick" >
+    package="com.example.hatrick">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,23 +14,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hatrick"
-        tools:targetApi="31" >
+        tools:targetApi="31">
         <activity
-            android:name=".facilityy"
-            android:exported="true" >
+            android:name=".Basketball"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        </activity>
+        <activity
+            android:name=".Football"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Field"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".CreateGame"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,30 +56,8 @@
         <!-- android:value="" /> -->
         <!-- </activity> -->
         <activity
-            android:name=".justToPract"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".onlyContaner"
-            android:exported="false" >
-
-<!--             <intent-filter> -->
-<!--             <action android:name="android.intent.action.MAIN" /> -->
-
-
-<!--             <category android:name="android.intent.category.LAUNCHER" /> -->
-<!--             </intent-filter> -->
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Account"
-            android:exported="true" >
+            android:exported="false">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -73,6 +65,7 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -85,7 +78,8 @@
             android:exported="true" />
         <activity
             android:name=".CreateAcc"
-            android:exported="true" >
+            android:exported="true"
+            android:label="Create Account">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -96,7 +90,8 @@
         </activity>
         <activity
             android:name=".Signin"
-            android:exported="true" >
+            android:exported="true"
+            android:label="Sign In">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -105,7 +100,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
