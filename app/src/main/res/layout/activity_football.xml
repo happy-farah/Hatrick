@@ -52,7 +52,7 @@
                         app:srcCompat="@drawable/football_field" />
 
                     <TextView
-                        android:id="@+id/fieldLab"
+                        android:id="@+id/fieldName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"

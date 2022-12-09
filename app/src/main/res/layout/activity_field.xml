@@ -23,6 +23,11 @@
         app:iss_selected_dot="@drawable/default_selected_dot"
         app:iss_unselected_dot="@drawable/default_unselected_dot"
         tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp">
     <TextView
         android:id="@+id/fieldNameTxt"
         android:layout_width="wrap_content"
@@ -30,7 +35,7 @@
         android:shadowColor="#0E0D0D"
         android:text="NAME"
         android:textColor="@color/textGray"
-        android:textSize="34sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -58,15 +63,11 @@
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Khalda"
+        android:text=""
+        android:textSize="18sp"
         android:layout_marginTop="-25dp"
         android:layout_marginLeft="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.599"
-        app:layout_constraintStart_toStartOf="@id/locationTxt"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.172" />
+         />
 
     <TextView
         android:id="@+id/openeingTimesTxt"
@@ -78,27 +79,18 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.472" />
+        />
 
 
     <TextView
         android:id="@+id/openeingTimes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8:00 AM - 11:59 PM"
+        android:text=""
+        android:textSize="18sp"
         android:layout_marginTop="-20dp"
         android:layout_marginLeft="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.599"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.471" />
+        />
 
 
     <TextView
@@ -111,26 +103,17 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.272" />
+        />
 
     <TextView
         android:id="@+id/capacity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="22"
+        android:text=""
+        android:textSize="18sp"
         android:layout_marginTop="-20dp"
         android:layout_marginLeft="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.271" />
+         />
 
     <TextView
         android:id="@+id/groundTypeTxt"
@@ -152,15 +135,11 @@
         android:id="@+id/groundType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Natural GRASS"
+        android:text=""
+        android:textSize="18sp"
         android:layout_marginTop="-20dp"
         android:layout_marginLeft="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.599"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.371" />
+        />
 
     <TextView
         android:id="@+id/textViewPublicUtilities"
@@ -204,7 +183,8 @@
         android:text="+ Create Game"
         android:textStyle="bold"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="100dp"/>
+        android:layout_marginLeft="80dp"/>
+    </LinearLayout>
 
 
 </LinearLayout>

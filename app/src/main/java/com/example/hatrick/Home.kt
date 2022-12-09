@@ -1,11 +1,13 @@
 package com.example.hatrick
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -41,14 +43,29 @@ class Home : Fragment() {
     ): View? {
         val v : View = inflater.inflate(R.layout.fragment_home, container, false)
         val fCArd = v.findViewById<CardView>(R.id.footballCard)
+        val FRules = v.findViewById<ImageView>(R.id.footballRulesImg)
+        FRules.setOnClickListener {
+            var dial = FootballRules()
+            dial.show(childFragmentManager,"FootballRules")
+        }
+        val BRules = v.findViewById<ImageView>(R.id.basketballRulesImg)
+        BRules.setOnClickListener {
+            var dial = BasketballRules()
+            dial.show(childFragmentManager,"BasketballRules")
+        }
         fCArd.setOnClickListener {
-            var dial = FootballHome()
-            dial.show(childFragmentManager,"FootballHome")
+            val intent = Intent(this@Home.requireContext(),Football::class.java)
+            startActivity(intent)
         }
         val FF = v.findViewById<TextView>(R.id.footballLab)
         FF.setOnClickListener {
                 Toast.makeText(context,"Football", Toast.LENGTH_SHORT).show()
         }
+//        val FRules = v.findViewById<TextView>(R.id.footballRulesImg)
+//        FRules.setOnClickListener {
+//            var dial = FootballRules()
+//            dial.show(childFragmentManager,"FootballRules")
+//        }
         // Inflate the layout for this fragment
         return v
     }

@@ -11,4 +11,10 @@
     </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_1_frule">1. A football match is played by two teams, with each allowed no more than 11 players on the field at any one time, one of whom is a goalkeeper.</string>
+    <string name="_2_frule">2. A match is played in two 45 minute halves.</string>
+    <string name="_6_frule">6. If the ball completely crosses the side line, it is thrown back in by the team that was not the last to touch the ball.</string>
+    <string name="_5_frule">5. The aim of the game is to score a goal, which is achieved by kicking or heading the ball into the opposition team\'s goal.</string>
+    <string name="_4_frule">4. All players must use their feet head or chest to play the ball. Only the goalkeeper is allowed to use their hands, and only within their designated goal area.</string>
+    <string name="_3_frule">3. The game begins with the toss of a coin, and the winning captain decides which goal to defend or to take the first kick off.</string>
 </resources>

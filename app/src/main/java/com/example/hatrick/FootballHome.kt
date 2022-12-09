@@ -1,9 +1,12 @@
 package com.example.hatrick
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.DialogFragment
 
 
@@ -11,7 +14,12 @@ class FootballHome : DialogFragment(R.layout.fragment_football_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL,
-            android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+//        val fCArd = findViewById<CardView>(R.id.footballCard)
+//        fCArd.setOnClickListener {
+//            val intent = Intent(this@Home.requireContext(),Football::class.java)
+//            startActivity(intent)
+//        }
 
     }
 }
