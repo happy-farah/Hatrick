@@ -16,8 +16,9 @@ class Football : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_football)
         val fieldImage = findViewById<ImageView>(R.id.fieldImage)
+        val imageUrl : String = "https://lh5.googleusercontent.com/p/AF1QipN7cFaNksqzFRs9upu-cEycW9Uft3uV0cUg1Lf8=w750-h606-p-k-no"
 
-        fieldImage.setImageURI("https://lh5.googleusercontent.com/p/AF1QipN7cFaNksqzFRs9upu-cEycW9Uft3uV0cUg1Lf8=w750-h606-p-k-no")
+
 
 
 
