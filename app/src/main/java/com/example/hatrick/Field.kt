@@ -1,7 +1,9 @@
 package com.example.hatrick
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -10,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Field : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_field)
@@ -21,6 +24,13 @@ class Field : AppCompatActivity() {
         imageList.add(SlideModel("https://lh5.googleusercontent.com/p/AF1QipPQsoHN47xpQojOsHMwdJGuXh-UQsNOy78pH4Fm=w750-h813-p-k-no"))
         imageList.add(SlideModel("https://lh5.googleusercontent.com/p/AF1QipMNGdwqd9f8aIQUiAxKgazap2qL462bXL_k5Hm9=w750-h813-p-k-no"))
         imageSlider.setImageList(imageList, ScaleTypes.FIT)
+
+        val creategame = findViewById<Button>(R.id.createGameBtn)
+        creategame.setOnClickListener {
+            var dial = CreateGame()
+            dial.show(supportFragmentManager,"Create Game")
+        }
+
 
 
         val UserFireData = FirebaseFirestore.getInstance()

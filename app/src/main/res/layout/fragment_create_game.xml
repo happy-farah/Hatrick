@@ -16,13 +16,23 @@
             android:background="@color/white"
             android:layout_margin="7dp"
             >
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginBottom="7dp"
+            android:paddingBottom="300dp"
+
+            >
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Create Game"
+                android:textAlignment="center"
                 android:textSize="24sp"
-                android:layout_marginLeft="120dp"
+                android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/textGray"
                 />
@@ -32,8 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Public Game"
-                android:textSize="24sp"
-                android:layout_marginLeft="40dp"
+                android:textSize="18sp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="0dp"
                 android:layout_marginRight="40dp"
@@ -44,7 +54,7 @@
                 android:id="@+id/gender"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="40dp"
                 android:orientation="horizontal"
@@ -52,11 +62,11 @@
 
                 <TextView
 
-                    android:layout_width="114dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
-                    android:text="Gender"
+                    android:text="Allowed Gender"
                     android:textColor="@color/textGray"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                      />
 
 
@@ -65,7 +75,7 @@
                     android:layout_width="87dp"
                     android:layout_height="55dp"
                     android:text="Male"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
 
                     android:textColor="@color/textGray" />
 
@@ -74,10 +84,32 @@
                     android:layout_width="105dp"
                     android:layout_height="55dp"
                     android:text="Female"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textColor="@color/textGray" />
             </RadioGroup>
 
+            <TextView
+                android:id="@+id/ageAllowed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Allowed Age"
+                android:textSize="18sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="40dp"/>
+
+            <TextView
+                android:id="@+id/priceTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textSize="18sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="40dp"/>
+
+
 
         </LinearLayout>
+</LinearLayout>
 </LinearLayout>

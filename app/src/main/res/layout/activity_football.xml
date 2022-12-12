@@ -49,7 +49,7 @@
                         android:layout_height="150dp"
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/football_field" />
+                        />
 
                     <TextView
                         android:id="@+id/fieldName"

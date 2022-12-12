@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/AppImg"
             android:layout_width="match_parent"
-            android:layout_height="222dp"
+            android:layout_height="200dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/sports"
             tools:ignore="InvalidId" />
