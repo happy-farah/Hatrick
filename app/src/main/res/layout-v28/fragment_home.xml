@@ -22,7 +22,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/myDarkGreen"
                 app:cardCornerRadius="20dp"
@@ -235,134 +235,221 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/handballCard"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/dark_navy"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <!--        <androidx.cardview.widget.CardView-->
-            <!--            android:id="@+id/sportCont"-->
-            <!--            android:layout_width="350dp"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintStart_toStartOf="parent"-->
-            <!--            app:layout_constraintTop_toTopOf="parent"-->
-            <!--            android:layout_marginStart="30dp"-->
-            <!--            android:layout_marginTop="100dp"-->
-            <!--            android:outlineSpotShadowColor="@color/myGreen"-->
-            <!--            app:cardUseCompatPadding="true"-->
-            <!--            app:cardElevation="10dp"-->
-            <!--            app:cardCornerRadius="20dp">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:orientation="vertical">-->
+                    <ImageView
+                        android:id="@+id/handballImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="@string/todo1"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/handball_img" />
 
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/imageView2"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="200dp"-->
-            <!--                    android:scaleType="centerCrop"-->
-            <!--                    app:srcCompat="@drawable/sports"-->
-            <!--                    android:contentDescription="@string/todo1" />-->
+                    <TextView
+                        android:id="@+id/handballLab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="13dp"
+                        android:text="Handball"
+                        android:textColor="@color/dark_navy"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="@string/football"-->
-            <!--                    android:layout_marginStart="30dp"-->
-            <!--                    android:layout_marginTop="13dp"-->
-            <!--                    android:textSize="30sp"-->
-            <!--                    android:textStyle="bold"-->
-            <!--                    android:textColor="@color/darkGreen"/>-->
+                    <TextView
+                        android:id="@+id/handballNOF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/number_of_fields"
+                        android:textColor="@color/textGray"
+                        android:textSize="18sp" />
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView2"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="@string/number_of_fields"-->
-            <!--                    android:layout_marginStart="30dp"-->
-            <!--                    android:layout_marginTop="5dp"-->
-            <!--                    android:layout_marginBottom="20dp"-->
-            <!--                    android:textSize="18sp"-->
-            <!--                    android:textColor="@color/textGray"/>-->
+                    <ImageView
+                        android:id="@+id/handballRulesImg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="220dp"
+                        android:layout_marginTop="-70dp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/handball_rules" />
 
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/imageView3"-->
-            <!--                    android:layout_width="50dp"-->
-            <!--                    android:layout_height="50dp"-->
-            <!--                    android:layout_marginStart="260dp"-->
-            <!--                    android:layout_marginTop="-80dp"-->
-            <!--                    app:srcCompat="@drawable/ic_passinfo"-->
-            <!--                    android:contentDescription="@string/todo" />-->
+                    <TextView
+                        android:id="@+id/handballRulesLab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="217dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Game Rules"
+                        android:textColor="@color/dark_navy"
+                        android:textSize="10sp" />
 
-            <!--            </LinearLayout>-->
+                </LinearLayout>
 
-            <!--        </androidx.cardview.widget.CardView>-->
+            </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/badmintonCard"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/brown"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <!--        <androidx.cardview.widget.CardView-->
-            <!--            android:id="@+id/sportCont"-->
-            <!--            android:layout_width="350dp"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintStart_toStartOf="parent"-->
-            <!--            app:layout_constraintTop_toTopOf="parent"-->
-            <!--            android:layout_marginStart="30dp"-->
-            <!--            android:layout_marginTop="100dp"-->
-            <!--            android:outlineSpotShadowColor="@color/myGreen"-->
-            <!--            app:cardUseCompatPadding="true"-->
-            <!--            app:cardElevation="10dp"-->
-            <!--            app:cardCornerRadius="20dp">-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:orientation="vertical">-->
+                    <ImageView
+                        android:id="@+id/badmintonImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="@string/todo1"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/badminton_img" />
 
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/imageView2"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="200dp"-->
-            <!--                    android:scaleType="centerCrop"-->
-            <!--                    app:srcCompat="@drawable/sports"-->
-            <!--                    android:contentDescription="@string/todo1" />-->
+                    <TextView
+                        android:id="@+id/badmintonLab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="13dp"
+                        android:text="Badminton"
+                        android:textColor="@color/brown"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="@string/football"-->
-            <!--                    android:layout_marginStart="30dp"-->
-            <!--                    android:layout_marginTop="13dp"-->
-            <!--                    android:textSize="30sp"-->
-            <!--                    android:textStyle="bold"-->
-            <!--                    android:textColor="@color/darkGreen"/>-->
+                    <TextView
+                        android:id="@+id/badmintonNOF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/number_of_fields"
+                        android:textColor="@color/textGray"
+                        android:textSize="18sp" />
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView2"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="@string/number_of_fields"-->
-            <!--                    android:layout_marginStart="30dp"-->
-            <!--                    android:layout_marginTop="5dp"-->
-            <!--                    android:layout_marginBottom="20dp"-->
-            <!--                    android:textSize="18sp"-->
-            <!--                    android:textColor="@color/textGray"/>-->
+                    <ImageView
+                        android:id="@+id/badmintonRulesImg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="220dp"
+                        android:layout_marginTop="-70dp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/badminnton_rules" />
 
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/imageView3"-->
-            <!--                    android:layout_width="50dp"-->
-            <!--                    android:layout_height="50dp"-->
-            <!--                    android:layout_marginStart="260dp"-->
-            <!--                    android:layout_marginTop="-80dp"-->
-            <!--                    app:srcCompat="@drawable/ic_passinfo"-->
-            <!--                    android:contentDescription="@string/todo" />-->
+                    <TextView
+                        android:id="@+id/badmintonRulesLab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="217dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Game Rules"
+                        android:textColor="@color/brown"
+                        android:textSize="10sp" />
 
-            <!--            </LinearLayout>-->
+                </LinearLayout>
 
-            <!--        </androidx.cardview.widget.CardView>-->
-            <!--        -->
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/volleyballCard"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:outlineSpotShadowColor="@color/blue"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/volleyballImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="@string/todo1"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/volleyball_img" />
+
+                    <TextView
+                        android:id="@+id/volleyballLab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="13dp"
+                        android:text="Volleyball"
+                        android:textColor="@color/blue"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/volleyballNOF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/number_of_fields"
+                        android:textColor="@color/textGray"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/volleyballRulesImg"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="220dp"
+                        android:layout_marginTop="-70dp"
+                        android:contentDescription="@string/todo"
+                        app:srcCompat="@drawable/volleyball_rules" />
+
+                    <TextView
+                        android:id="@+id/volleyballRulesLab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="217dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Game Rules"
+                        android:textColor="@color/blue"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Field">
+    tools:context=".FieldInfo">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="0dp">
     <TextView
         android:id="@+id/fieldNameTxt"
         android:layout_width="wrap_content"
@@ -42,7 +42,62 @@
         app:layout_constraintBottom_toTopOf="@+id/locationtxt"
         app:layout_constraintTop_toBottomOf="@+id/imageSlider"
         app:layout_constraintVertical_bias="0.209" />
-    <TextView
+
+        <TextView
+            android:id="@+id/phoneTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:textColor="@color/textGray"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.034"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageSlider"
+            app:layout_constraintVertical_bias="0.172" />
+
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="200dp"
+            />
+
+        <TextView
+            android:id="@+id/emailTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/textGray"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.034"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageSlider"
+            app:layout_constraintVertical_bias="0.172" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="200dp"
+            />
+
+        <TextView
         android:id="@+id/locationTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +123,53 @@
         android:layout_marginTop="-25dp"
         android:layout_marginLeft="200dp"
          />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Length(m)"
+            android:textColor="@color/darkGreen"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
+            android:layout_marginLeft="180dp"
+            android:inputType="number"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="width(m)"
+            android:textColor="@color/darkGreen"
+            android:textSize="16sp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="20dp" />
+        <TextView
+            android:id="@+id/width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="10dp"
 
+           />
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="-50dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/darkGreen">
+        </LinearLayout>
+</LinearLayout>
     <TextView
         android:id="@+id/openeingTimesTxt"
         android:layout_width="wrap_content"
@@ -141,23 +242,6 @@
         android:layout_marginLeft="200dp"
         />
 
-    <TextView
-        android:id="@+id/textViewPublicUtilities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Public Utilities"
-        android:textColor="@color/textGray"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-        app:layout_constraintVertical_bias="0.772" />
-
 
     <TextView
         android:id="@+id/textViewServices"
@@ -167,7 +251,7 @@
         android:textColor="@color/textGray"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +259,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageSlider"
         app:layout_constraintVertical_bias="0.572" />
-
+        <TextView
+            android:id="@+id/services"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginTop="-28dp"
+            android:layout_marginLeft="200dp"
+            />
     <Button
         android:id="@+id/createGameBtn"
         android:layout_width="200dp"

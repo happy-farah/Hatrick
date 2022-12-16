@@ -16,5 +16,8 @@
     <color name="tennisColor">#AAEE00</color>
     <color name="gray_green">#EBFCE8</color>
     <color name="red">#D10000</color>
+    <color name="dark_navy">#023e7d</color>
+    <color name="brown">#ae2012</color>
+    <color name="blue">#4361ee</color>
 
 </resources>

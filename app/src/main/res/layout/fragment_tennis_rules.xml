@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/orange">
+    android:background="@color/tennisColor">
 
 
     <LinearLayout
@@ -15,21 +15,21 @@
         android:background="@color/white"
         android:layout_margin="7dp"
         >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_marginBottom="7dp"
-        android:paddingBottom="300dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginBottom="7dp"
+            android:paddingBottom="300dp"
 
-        >
+            >
             <TextView
                 android:id="@+id/BRtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Basketball Rules"
-                android:textColor="@color/orange"
+                android:text="Tennis Rules"
+                android:textColor="@color/tennisColor"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -110,5 +110,5 @@
             />
 
         </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+</ScrollView>

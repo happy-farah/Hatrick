@@ -1,44 +1,65 @@
 package com.example.hatrick
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
+import android.util.Log
 import androidx.cardview.widget.CardView
-import com.denzcoskun.imageslider.ImageSlider
-import com.denzcoskun.imageslider.models.SlideModel
-import com.google.firebase.auth.FirebaseAuth
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 
 class Football : AppCompatActivity() {
+
+    private lateinit var db : FirebaseFirestore
+    private lateinit var recyclerview : RecyclerView
+    private lateinit var FieldArrayList : ArrayList<Field>
+    private lateinit var myAdapter: MyAdapter
+
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_football)
-        val fieldImage = findViewById<ImageView>(R.id.fieldImage)
-        val imageUrl : String = "https://lh5.googleusercontent.com/p/AF1QipN7cFaNksqzFRs9upu-cEycW9Uft3uV0cUg1Lf8=w750-h606-p-k-no"
 
+        recyclerview = findViewById(R.id.FieldList)
+        recyclerview.layoutManager = LinearLayoutManager(this)
+        recyclerview.setHasFixedSize(true)
 
+        FieldArrayList = arrayListOf()
+        myAdapter = MyAdapter(FieldArrayList)
+        recyclerview.adapter = myAdapter
 
+        EventChangeListener()
+//        val fieldinfo = findViewById<CardView>(R.id.ffieldCard)
+//        fieldinfo.setOnClickListener {
+//            val intent = Intent(this , FieldInfo::class.java)
+//            startActivity(intent)
+//        }
 
+    }
 
-        val fCard = findViewById<CardView>(R.id.fieldCard)
-        fCard.setOnClickListener {
-            val intent = Intent(this, Field::class.java)
-            startActivity(intent)
-        }
-        val UserFireData = FirebaseFirestore.getInstance()
-        UserFireData.collection("Fields")
-            .get().addOnCompleteListener {
-                if (it.isSuccessful) {
-                    for (doc in it.result!!) {
-                        val fieldName = findViewById<TextView>(R.id.fieldName)
-                        fieldName.setText(doc.data.getValue("fieldName") as CharSequence?)
-                        val location = findViewById<TextView>(R.id.fieldLocation)
-                        location.setText(doc.data.getValue("address") as CharSequence?)
-
+    private fun EventChangeListener(){
+        db = FirebaseFirestore.getInstance()
+        db.collection("Fields").
+        addSnapshotListener(object : EventListener<QuerySnapshot>{
+            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
+                if (error != null) {
+                    Log.e("Firestore Error", error.message.toString())
+                    return
+                }
+                for (dc: DocumentChange in value?.documentChanges!!) {
+                    if (dc.type == DocumentChange.Type.ADDED) {
+                        FieldArrayList.add(dc.document.toObject(Field::class.java))
                     }
                 }
+                myAdapter.notifyDataSetChanged()
             }
-          }
+        })
+    }
 }

@@ -37,6 +37,7 @@ class Home : Fragment() {
     }
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,6 +53,26 @@ class Home : Fragment() {
         BRules.setOnClickListener {
             var dial = BasketballRules()
             dial.show(childFragmentManager,"BasketballRules")
+        }
+        val TRules = v.findViewById<ImageView>(R.id.tennisRulesImg)
+        TRules.setOnClickListener {
+            var dial = TennisRules()
+            dial.show(childFragmentManager,"Tennis Rules")
+        }
+        val HRules = v.findViewById<ImageView>(R.id.handballRulesImg)
+        HRules.setOnClickListener {
+            var dial = HandballRules()
+            dial.show(childFragmentManager,"Handball Rules")
+        }
+        val BmRules = v.findViewById<ImageView>(R.id.badmintonRulesImg)
+        BmRules.setOnClickListener {
+            var dial = BadmintonRules()
+            dial.show(childFragmentManager,"Badminton Rules")
+        }
+        val VRules = v.findViewById<ImageView>(R.id.volleyballRulesImg)
+        VRules.setOnClickListener {
+            var dial = VolleyballRules()
+            dial.show(childFragmentManager,"Volleyball Rules")
         }
         fCArd.setOnClickListener {
             val intent = Intent(this@Home.requireContext(),Football::class.java)

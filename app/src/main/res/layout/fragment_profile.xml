@@ -13,10 +13,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="35dp"
-            android:layout_marginTop="60dp"
-            android:background="@color/gray_green"
+            android:layout_marginTop="0dp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/nameLab"
@@ -35,6 +34,7 @@
                 android:orientation="horizontal"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="-25dp"
+                android:background="@color/gray_green"
                 >
             <TextView
                 android:id="@+id/firstNameBox"
@@ -67,13 +67,14 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 />
+
             <TextView
                 android:id="@+id/birthDate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="-25dp"
-
+                android:background="@color/gray_green"
                 android:textColor="@color/textGray"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -91,11 +92,11 @@
                 />
             <TextView
                 android:id="@+id/gender"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="-25dp"
-
+                android:background="@color/gray_green"
                 android:textColor="@color/textGray"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -113,11 +114,11 @@
                 />
             <TextView
                 android:id="@+id/phoneBox"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="-25dp"
-
+                android:background="@color/gray_green"
                 android:textColor="@color/textGray"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -134,11 +135,11 @@
                 />
             <TextView
                 android:id="@+id/emailBox"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="-25dp"
-
+                android:background="@color/gray_green"
                 android:textColor="@color/textGray"
                 android:textSize="20sp"
                 android:textStyle="bold" />
