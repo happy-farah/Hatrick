@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:title="Settings"
-        android:id="@+id/settings"
+    <item android:title="Up-Coming"
+        android:id="@+id/up_coming"
         android:icon="@drawable/ic_baseline_star_rate_24"
         app:showAsAction="ifRoom|collapseActionView"
         />
-    <item android:title="Games"
-        android:id="@+id/games"
+    <item android:title="History"
+        android:id="@+id/history"
         android:icon="@drawable/ic_baseline_event_available_24"
         app:showAsAction="ifRoom|collapseActionView"
         />
-    <item android:title="Activites"
-        android:id="@+id/activites"
+    <item android:title="Favorites"
+        android:id="@+id/favorites"
         android:icon="@drawable/ic_baseline_access_time_24"
         app:showAsAction="ifRoom|collapseActionView"
         />

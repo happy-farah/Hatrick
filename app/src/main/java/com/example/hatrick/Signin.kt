@@ -46,13 +46,14 @@ class Signin : AppCompatActivity() {
             }
         }
         val createAcc = findViewById<TextView>(R.id.CreateAcc)
-        val changeLang = findViewById<TextView>(R.id.ArabicLab)
+
         createAcc.setOnClickListener {
             val intent = Intent(this, CreateAcc::class.java)
             startActivity(intent)
         }
-        changeLang.setOnClickListener{
-            val intent = Intent(this , ArSignin::class.java)
+        val forgetPassword = findViewById<TextView>(R.id.forgetPass)
+        forgetPassword.setOnClickListener {
+            val intent = Intent(this, ForgetPassword::class.java)
             startActivity(intent)
         }
     }

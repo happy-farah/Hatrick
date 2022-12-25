@@ -1,10 +1,14 @@
 package com.example.hatrick
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
+import com.google.android.material.navigation.NavigationView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,15 +31,39 @@ class Activities : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_activities, container, false)
+        val v : View =inflater.inflate(R.layout.fragment_activities, container, false)
+
+        val upComing = v.findViewById<CardView>(R.id.upComing)
+        upComing.setOnClickListener {
+            val intent = Intent(this@Activities.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Football")
+            startActivity(intent)
+        }
+        val history = v.findViewById<CardView>(R.id.history)
+        history.setOnClickListener {
+            val intent = Intent(this@Activities.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Football")
+            startActivity(intent)
+        }
+        val favorites = v.findViewById<CardView>(R.id.favorites)
+        favorites.setOnClickListener {
+            val intent = Intent(this@Activities.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Football")
+            startActivity(intent)
+        }
+
+
+        return v
     }
+
 
     companion object {
         /**

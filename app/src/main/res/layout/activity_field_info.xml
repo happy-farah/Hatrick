@@ -10,24 +10,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/imageSlider"
-        android:layout_width="match_parent"
-        android:layout_height="210dp"
-        app:iss_auto_cycle="true"
-        app:iss_corner_radius="5"
-        app:iss_delay="0"
-        app:iss_error_image="@android:color/darker_gray"
-        app:iss_period="1000"
-        app:iss_placeholder="@android:color/darker_gray"
-        app:iss_selected_dot="@drawable/default_selected_dot"
-        app:iss_unselected_dot="@drawable/default_unselected_dot"
-        tools:ignore="MissingConstraints" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginLeft="0dp">
+        <ImageView
+            android:id="@+id/img"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"/>
     <TextView
         android:id="@+id/fieldNameTxt"
         android:layout_width="wrap_content"

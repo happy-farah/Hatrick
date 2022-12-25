@@ -43,7 +43,6 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val v : View = inflater.inflate(R.layout.fragment_home, container, false)
-        val fCArd = v.findViewById<CardView>(R.id.footballCard)
         val FRules = v.findViewById<ImageView>(R.id.footballRulesImg)
         FRules.setOnClickListener {
             var dial = FootballRules()
@@ -74,8 +73,40 @@ class Home : Fragment() {
             var dial = VolleyballRules()
             dial.show(childFragmentManager,"Volleyball Rules")
         }
+        val fCArd = v.findViewById<CardView>(R.id.footballCard)
+        val bCArd = v.findViewById<CardView>(R.id.basketballCard)
+        val tCArd = v.findViewById<CardView>(R.id.tennisCard)
+        val hCArd = v.findViewById<CardView>(R.id.handballCard)
+        val bmCArd = v.findViewById<CardView>(R.id.badmintonCard)
+        val vCArd = v.findViewById<CardView>(R.id.volleyballCard)
         fCArd.setOnClickListener {
-            val intent = Intent(this@Home.requireContext(),Football::class.java)
+            val intent = Intent(this@Home.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Football")
+            startActivity(intent)
+        }
+        bCArd.setOnClickListener {
+            val intent = Intent(this@Home.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Basketball")
+            startActivity(intent)
+        }
+        tCArd.setOnClickListener {
+            val intent = Intent(this@Home.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Tennis")
+            startActivity(intent)
+        }
+        hCArd.setOnClickListener {
+            val intent = Intent(this@Home.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Handball")
+            startActivity(intent)
+        }
+        bmCArd.setOnClickListener {
+            val intent = Intent(this@Home.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Badminton")
+            startActivity(intent)
+        }
+        vCArd.setOnClickListener {
+            val intent = Intent(this@Home.requireContext(),FieldListActivity::class.java)
+            intent.putExtra("card","Volleyball")
             startActivity(intent)
         }
         val FF = v.findViewById<TextView>(R.id.footballLab)

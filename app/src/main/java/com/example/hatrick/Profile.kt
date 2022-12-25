@@ -1,11 +1,16 @@
 package com.example.hatrick
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -32,11 +37,22 @@ class Profile : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val v: View = inflater.inflate(R.layout.fragment_profile, container, false)
+        val editProfile = v.findViewById<Button>(R.id.editProfileBtn)
+        editProfile.setOnClickListener {
+            val intent = Intent(this@Profile.requireContext(),EditProfile::class.java)
+            startActivity(intent)
+        }
+        val changePass = v.findViewById<Button>(R.id.changePass)
+        changePass.setOnClickListener {
+            val intent = Intent(this@Profile.requireContext(),ChangePassword::class.java)
+            startActivity(intent)
+        }
         firebaseAuth = FirebaseAuth.getInstance()
         val UserFireData = FirebaseFirestore.getInstance()
         UserFireData.collection("users").whereEqualTo("customerID", getCurrentUserID())

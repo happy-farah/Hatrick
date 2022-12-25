@@ -15,42 +15,42 @@
             app:srcCompat="@drawable/sports"
             tools:ignore="InvalidId" />
 
-        <TextView
-            android:id="@+id/EngLab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="10dp"
-            android:text="English"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:id="@+id/EngLab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="140dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:text="English"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold" />-->
 
-        <TextView
-            android:id="@+id/split"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="-70dp"
-            android:text="."
-            android:textSize="60sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:id="@+id/split"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="200dp"-->
+<!--            android:layout_marginTop="-70dp"-->
+<!--            android:text="."-->
+<!--            android:textSize="60sp"-->
+<!--            android:textStyle="bold" />-->
 
-        <TextView
-            android:id="@+id/ArabicLab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="225dp"
-            android:layout_marginTop="-33dp"
-            android:text="العربية"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:id="@+id/ArabicLab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="225dp"-->
+<!--            android:layout_marginTop="-33dp"-->
+<!--            android:text="العربية"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold" />-->
         <TextView
             android:id="@+id/emailLab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="E-mail"
             android:textColor="@color/myDarkGreen"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -65,7 +65,7 @@
             android:id="@+id/LoginEmail"
             android:layout_width="310dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:editable="false"
             android:ems="10"
             android:hint="example@example.com"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:text="Password"
             android:textColor="@color/myDarkGreen"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -107,7 +107,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:textColor="@color/textGray"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.455"
@@ -162,7 +162,7 @@
             android:backgroundTint="@color/myDarkGreen"
             android:text="Sign in"
             android:textColor="@color/white"
-            android:layout_marginLeft="160dp"
+            android:layout_marginLeft="140dp"
             android:layout_marginTop="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -180,7 +180,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -193,31 +193,10 @@
             android:layout_height="wrap_content"
             android:text="Create Account"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             android:textColor="#009900"
             android:textSize="16sp"
             android:layout_marginTop="0dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="130dp"
             android:layout_marginBottom="50dp"
             android:textStyle="bold"
              />
