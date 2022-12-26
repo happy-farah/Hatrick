@@ -43,6 +43,7 @@ class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>) : Recy
             val groundtype = field.groundType
             val services = field.services
             val image = field.image
+            val fieldId=field.fieldID
             val intent = Intent(c, FieldInfo::class.java)
             intent.putExtra("fieldName",fieldName)
             intent.putExtra("phoneNumber",phone)
@@ -54,6 +55,7 @@ class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>) : Recy
             intent.putExtra("groundType",groundtype)
             intent.putExtra("services",services)
             intent.putExtra("image", image)
+            intent.putExtra("fieldID",fieldId)
             c.startActivity(intent)
         }
 

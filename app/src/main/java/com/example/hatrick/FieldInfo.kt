@@ -1,8 +1,10 @@
 package com.example.hatrick
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,6 +18,7 @@ class FieldInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_field_info)
         val FieldIntent = intent
+        val fieldId = FieldIntent.getStringExtra("fieldID")
         val fieldName = FieldIntent.getStringExtra("fieldName")
         findViewById<TextView>(R.id.fieldNameTxt).text = fieldName
         val phone = FieldIntent.getStringExtra("phoneNumber")
@@ -37,6 +40,15 @@ class FieldInfo : AppCompatActivity() {
         val image = FieldIntent.getStringExtra("image")
         val uri = image?.toUri()
         Picasso.get().load(uri).into(findViewById<ImageView>(R.id.img))
+
+        val createGame = findViewById<Button>(R.id.createGameBtn)
+        createGame.setOnClickListener {
+            val intent = Intent(this , CreateAGame::class.java)
+            intent.putExtra("fieldID",fieldId)
+            startActivity(intent)
+        }
+
+
     }
 
 }

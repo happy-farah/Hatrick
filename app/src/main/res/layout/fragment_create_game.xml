@@ -38,7 +38,7 @@
                 />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/publicity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Public Game"
@@ -50,66 +50,158 @@
                 android:textColor="@color/textGray"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-            <RadioGroup
-                android:id="@+id/gender"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="40dp"
-                android:orientation="horizontal"
-                >
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date goes here!"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
 
                 <TextView
-
-                    android:layout_width="130dp"
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Allowed Gender"
-                    android:textColor="@color/textGray"
-                    android:textSize="18sp"
-                     />
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18dp"
+
+                    android:text="Number of players you want to reserve for" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp">
+                <Button
+                    android:id="@+id/minusBtn1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:textSize="25sp"
+                    android:text="-"
+
+                    />
+                <TextView
+                    android:id="@+id/value1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_marginLeft="20dp"
+
+                    />
+                <Button
+                    android:id="@+id/plusBtn1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:textSize="25sp"
+                    android:text="+"
+                    android:layout_marginLeft="20dp"
 
 
-                <RadioButton
-                    android:id="@+id/maleRadio"
-                    android:layout_width="87dp"
-                    android:layout_height="55dp"
-                    android:text="Male"
-                    android:textSize="15sp"
+                    />
+</LinearLayout>
 
-                    android:textColor="@color/textGray" />
+                <TextView
+                    android:id="@+id/number2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="18dp"
 
-                <RadioButton
-                    android:id="@+id/femaleRadio"
-                    android:layout_width="105dp"
-                    android:layout_height="55dp"
-                    android:text="Female"
-                    android:textSize="15sp"
-                    android:textColor="@color/textGray" />
-            </RadioGroup>
+                    android:text="Minimum number of players for the game" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp">
+                    <Button
+                        android:id="@+id/minusBtn2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:textSize="25sp"
+                        android:text="-"
 
-            <TextView
-                android:id="@+id/ageAllowed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Allowed Age"
-                android:textSize="18sp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="40dp"/>
+                        />
+                    <TextView
+                        android:id="@+id/value2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:text="0"
+                        android:layout_marginLeft="20dp"
 
-            <TextView
-                android:id="@+id/priceTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Price"
-                android:textSize="18sp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="40dp"/>
-
+                        />
+                    <Button
+                        android:id="@+id/plusBtn2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:textSize="25sp"
+                        android:text="+"
+                        android:layout_marginLeft="20dp"
 
 
-        </LinearLayout>
+                        />
+                </LinearLayout>
+                <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="80dp">
+                <TextView
+                    android:id="@+id/priceTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Price per person"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/pricePP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="80dp">
+                    <TextView
+                        android:id="@+id/rPriceTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Reservation price"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/priceR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
 </LinearLayout>
 </LinearLayout>

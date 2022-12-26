@@ -72,14 +72,15 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         genderr.setOnCheckedChangeListener(
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 selectedgender = genderr.checkedRadioButtonId.toString()
-                if (selectedgender == "2131231062")
+                if (selectedgender == "2131231123")
                 {
                     selectedgender="Male"
                 }
-                else
+                else if (selectedgender == "2131231008")
                 {
                     selectedgender="Female"
                 }
+
             })
 
         findViewById<EditText>(R.id.passwordbox).addTextChangedListener(object : TextWatcher {
@@ -177,8 +178,15 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         binding.SignupBtn.setOnClickListener {
             val fname =binding.firstNameBox.text.toString()
             val lname =binding.lastNameBox.text.toString()
-            val DDOB =binding.dayBox.text.toString()
-            val MDOB =binding.monBox.text.toString()
+            var DDOB =binding.dayBox.text.toString()
+            if(DDOB.length<2){
+                DDOB = "0" + DDOB
+            }
+            var MDOB =binding.monBox.text.toString()
+            if(MDOB.length<2){
+                MDOB = "0" + MDOB
+            }
+
             val YDOB =binding.yearBox.text.toString()
             val gender = selectedgender
             val phone =binding.phoneBox.text.toString()
@@ -186,6 +194,7 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val password =binding.passwordbox.text.toString()
             val confPass =binding.confpasswordbox.text.toString()
             val DOB = DDOB +"/"+ MDOB +"/"+ YDOB
+
             val codephone = binding.phoneBox.text.take(3).toString()
             val CurrentYear = Calendar.getInstance().get(Calendar.YEAR)
 
