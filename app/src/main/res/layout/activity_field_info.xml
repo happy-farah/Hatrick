@@ -191,7 +191,7 @@
     <TextView
         android:id="@+id/capacityTxt"
         android:layout_width="wrap_content"
-        android:layout_height="21dp"
+        android:layout_height="wrap_content"
         android:text="Capacity"
         android:textColor="@color/textGray"
         android:textSize="20sp"

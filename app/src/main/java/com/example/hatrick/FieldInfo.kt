@@ -18,6 +18,7 @@ class FieldInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_field_info)
         val FieldIntent = intent
+        val sporttype = FieldIntent.getStringExtra("sportType")
         val fieldId = FieldIntent.getStringExtra("fieldID")
         val fieldName = FieldIntent.getStringExtra("fieldName")
         findViewById<TextView>(R.id.fieldNameTxt).text = fieldName
@@ -45,6 +46,8 @@ class FieldInfo : AppCompatActivity() {
         createGame.setOnClickListener {
             val intent = Intent(this , CreateAGame::class.java)
             intent.putExtra("fieldID",fieldId)
+            intent.putExtra("fieldName",fieldName)
+            intent.putExtra("sportType",sporttype)
             startActivity(intent)
         }
 

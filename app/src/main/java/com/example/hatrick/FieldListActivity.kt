@@ -26,9 +26,9 @@ class FieldListActivity : AppCompatActivity() {
         recyclerview = findViewById(R.id.FieldList)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.setHasFixedSize(true)
-
+        val card = intent.getStringExtra("card").toString()
         FieldArrayList = arrayListOf()
-        myAdapter = MyAdapter(this,FieldArrayList)
+        myAdapter = MyAdapter(this,FieldArrayList, card)
         recyclerview.adapter = myAdapter
 
 

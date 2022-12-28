@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 
-class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>, private val card: String) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -56,6 +56,7 @@ class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>) : Recy
             intent.putExtra("services",services)
             intent.putExtra("image", image)
             intent.putExtra("fieldID",fieldId)
+            intent.putExtra("sportType",card)
             c.startActivity(intent)
         }
 
