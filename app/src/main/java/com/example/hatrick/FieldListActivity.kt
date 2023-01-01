@@ -3,6 +3,7 @@ package com.example.hatrick
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -10,6 +11,7 @@ import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.type.Color
 
 class FieldListActivity : AppCompatActivity() {
 
@@ -33,6 +35,7 @@ class FieldListActivity : AppCompatActivity() {
 
 
 
+
         EventChangeListener()
 
     }
@@ -40,7 +43,7 @@ class FieldListActivity : AppCompatActivity() {
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
         val card = intent.getStringExtra("card")
-        db.collection("Fields").whereGreaterThan("sportType", "$card")
+        db.collection("Fields").whereArrayContains("sportType", "$card")
             .addSnapshotListener(object : EventListener<QuerySnapshot>{
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if (error != null) {

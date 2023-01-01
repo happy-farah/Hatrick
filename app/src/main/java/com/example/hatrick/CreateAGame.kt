@@ -153,16 +153,16 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
             override fun afterTextChanged(mEdit: Editable) {
                 val time =findViewById<EditText>(R.id.time).text.toString()
                 val warning = findViewById<TextView>(R.id.warning)
-                if(checkTime(fieldID ,reservDate, time)){
-                    warning.setVisibility(View.INVISIBLE);
+                if(checkTime(fieldID ,reservDate, time)==false){
+                    warning.setVisibility(View.VISIBLE);
                 }
             }
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 val time = findViewById<EditText>(R.id.time).text.toString()
                 val warning = findViewById<TextView>(R.id.warning)
-                if (checkTime(fieldID, reservDate, time)) {
-                    warning.setVisibility(View.INVISIBLE);
+                if (checkTime(fieldID, reservDate, time)==false) {
+                    warning.setVisibility(View.VISIBLE);
                 }
             }
 

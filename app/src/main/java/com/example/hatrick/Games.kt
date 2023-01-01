@@ -1,10 +1,13 @@
 package com.example.hatrick
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.cardview.widget.CardView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +36,75 @@ class Games : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false)
+        val v : View = inflater.inflate(R.layout.fragment_games, container, false)
+
+        val FRules = v.findViewById<ImageView>(R.id.footballRulesImg)
+        FRules.setOnClickListener {
+            var dial = FootballRules()
+            dial.show(childFragmentManager,"FootballRules")
+        }
+        val BRules = v.findViewById<ImageView>(R.id.basketballRulesImg)
+        BRules.setOnClickListener {
+            var dial = BasketballRules()
+            dial.show(childFragmentManager,"BasketballRules")
+        }
+        val TRules = v.findViewById<ImageView>(R.id.tennisRulesImg)
+        TRules.setOnClickListener {
+            var dial = TennisRules()
+            dial.show(childFragmentManager,"Tennis Rules")
+        }
+        val HRules = v.findViewById<ImageView>(R.id.handballRulesImg)
+        HRules.setOnClickListener {
+            var dial = HandballRules()
+            dial.show(childFragmentManager,"Handball Rules")
+        }
+        val BmRules = v.findViewById<ImageView>(R.id.badmintonRulesImg)
+        BmRules.setOnClickListener {
+            var dial = BadmintonRules()
+            dial.show(childFragmentManager,"Badminton Rules")
+        }
+        val VRules = v.findViewById<ImageView>(R.id.volleyballRulesImg)
+        VRules.setOnClickListener {
+            var dial = VolleyballRules()
+            dial.show(childFragmentManager,"Volleyball Rules")
+        }
+        val fCArd = v.findViewById<CardView>(R.id.footballCard)
+        val bCArd = v.findViewById<CardView>(R.id.basketballCard)
+        val tCArd = v.findViewById<CardView>(R.id.tennisCard)
+        val hCArd = v.findViewById<CardView>(R.id.handballCard)
+        val bmCArd = v.findViewById<CardView>(R.id.badmintonCard)
+        val vCArd = v.findViewById<CardView>(R.id.volleyballCard)
+        fCArd.setOnClickListener {
+            val intent = Intent(this@Games.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("card","Football")
+            startActivity(intent)
+        }
+        bCArd.setOnClickListener {
+            val intent = Intent(this@Games.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("card","Basketball")
+            startActivity(intent)
+        }
+        tCArd.setOnClickListener {
+            val intent = Intent(this@Games.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("card","Tennis")
+            startActivity(intent)
+        }
+        hCArd.setOnClickListener {
+            val intent = Intent(this@Games.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("card","Handball")
+            startActivity(intent)
+        }
+        bmCArd.setOnClickListener {
+            val intent = Intent(this@Games.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("card","Badminton")
+            startActivity(intent)
+        }
+        vCArd.setOnClickListener {
+            val intent = Intent(this@Games.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("card","Volleyball")
+            startActivity(intent)
+        }
+        return v
     }
 
     companion object {
