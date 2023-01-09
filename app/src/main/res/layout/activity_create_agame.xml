@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateGame"
+    tools:context=".CreateAGame"
     android:orientation="vertical"
     >
 
@@ -14,19 +14,9 @@
             android:orientation="vertical"
             android:background="@color/white"
             android:layout_marginBottom="7dp"
+            android:layout_gravity="center_horizontal"
 
             >
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Create Game"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/textGray"
-                />
 
             <Switch
                 android:id="@+id/publicity"
@@ -129,7 +119,8 @@
                 android:text="Start time"
                 android:textSize="18sp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                />
 
             <EditText
                 android:id="@+id/time"
@@ -191,10 +182,12 @@
                 />
 
             <LinearLayout
+                android:id="@+id/forPublic"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="0dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
 
                 <TextView
@@ -319,6 +312,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/reservPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
@@ -347,7 +341,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:text="create game" />
+                android:text="create game"
+                android:layout_gravity="center"/>
 
 
         </LinearLayout>

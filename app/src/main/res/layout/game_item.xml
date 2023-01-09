@@ -3,16 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_horizontal">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:layout_marginBottom="30dp"
-        android:outlineSpotShadowColor="@color/myDarkGreen"
+        android:layout_gravity="center"
+        android:id="@+id/gCard"
+        android:outlineSpotShadowColor="@color/textGray"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
         >
@@ -21,6 +25,7 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_gravity="center"
             >
 
             <TextView
@@ -29,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
-                android:text="Field Name"
+                android:text="Field name"
                 android:textColor="@color/textGray"
                 android:textSize="18sp"
                  />
@@ -44,6 +49,65 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+
+
+            <TextView
+                android:id="@+id/dateTXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Date"
+                android:textColor="@color/textGray"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="-25dp"
+                android:text="date"
+                android:textColor="@color/textGray"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/timeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Time"
+                android:textColor="@color/textGray"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="-25dp"
+                android:text="time"
+                android:textColor="@color/textGray"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/pricePerP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Price per person"
+                android:textColor="@color/textGray"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/pricePP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="-25dp"
+                android:text="price"
+                android:textColor="@color/textGray"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/numberOfplayersTxt"
                 android:layout_width="wrap_content"
@@ -63,7 +127,6 @@
                 android:textColor="@color/textGray"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
-
             <Button
                 android:id="@+id/viewField"
                 android:layout_width="wrap_content"

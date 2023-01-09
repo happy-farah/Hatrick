@@ -15,26 +15,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hatrick"
         tools:targetApi="31">
+
         <activity
-            android:name=".gameListActivity"
-            android:exported="false">
+            android:name=".GamesListActivity"
+            android:exported="false"
+            android:label="Games"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GamesListActivity"
-            android:exported="false">
+            android:name=".CreateAcc"
+            android:exported="true"
+            android:label="Create Account"
+            >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                />
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".CreateAGame"
-            android:exported="true">
+            android:exported="true"
+            android:label="Create game"
+
+            >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                />
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
 
@@ -44,56 +60,58 @@
         </activity>
         <activity
             android:name=".History"
-            android:exported="false">
+            android:exported="false"
+            android:label="History">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Favorites"
-            android:exported="false">
+            android:exported="false"
+            android:label="Favorites">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".UpComing"
-            android:exported="false">
+            android:exported="false"
+            android:label="Upcoming">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ChangePassword"
-            android:exported="false">
+            android:exported="false"
+            android:label="Change password ">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".EditProfile"
-            android:exported="false">
+            android:exported="false"
+            android:label="Edit profile">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ForgetPassword"
-            android:exported="false">
+            android:exported="false"
+            android:label="Forget password">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".Basketball"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".FieldListActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Available fields"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -107,56 +125,12 @@
         </activity>
         <activity
             android:name=".FieldInfo"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".CreateGame"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity> <!-- <activity -->
-        <!-- android:name=".MainActivity2" -->
-        <!-- android:exported="false"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.app.lib_name" -->
-        <!-- android:value="" /> -->
-        <!-- </activity> -->
-        <activity
-            android:name=".onlyContaner"
-            android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ArCreateAcc"
-            android:exported="false" />
-        <activity
-            android:name=".ArSignin"
-            android:exported="true" />
-        <activity
-            android:name=".CreateAcc"
             android:exported="true"
-            android:label="Create Account">
-
+            android:label="Field Information"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
 
@@ -164,6 +138,30 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity
+            android:name=".FieldInfo2"
+            android:exported="true"
+            android:label="Field Information"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
         <activity
             android:name=".Signin"
             android:exported="true"
@@ -178,12 +176,12 @@
             android:name=".MainActivity"
             android:exported="true">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
         </activity>
     </application>
 

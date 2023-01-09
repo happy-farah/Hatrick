@@ -8,7 +8,8 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal">
 
 
     <LinearLayout
@@ -29,7 +30,7 @@
         android:shadowColor="#0E0D0D"
         android:text="NAME"
         android:textColor="@color/textGray"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="Phone Number"
             android:textColor="@color/textGray"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
@@ -70,7 +71,7 @@
             android:layout_height="wrap_content"
             android:text="Email"
             android:textColor="@color/textGray"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
@@ -97,7 +98,7 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:textColor="@color/textGray"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
@@ -118,14 +119,14 @@
         android:layout_marginLeft="200dp"
          />
 <LinearLayout
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginLeft="30dp">
+    android:layout_gravity="center">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="120dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:text="Length(m)"
@@ -136,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-30dp"
-            android:layout_marginLeft="180dp"
+            android:layout_marginLeft="200dp"
             android:inputType="number"
             android:textSize="16sp" />
         <TextView
@@ -156,12 +157,12 @@
 
            />
         <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="250dp"
+            android:layout_height="130dp"
             android:layout_marginTop="-50dp"
             android:layout_marginLeft="70dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/darkGreen">
+            android:background="@color/myGreen">
         </LinearLayout>
 </LinearLayout>
     <TextView
@@ -170,22 +171,21 @@
         android:layout_height="wrap_content"
         android:text="Opening Times"
         android:textColor="@color/textGray"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         />
 
 
-    <TextView
-        android:id="@+id/openeingTimes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:layout_marginTop="-20dp"
-        android:layout_marginLeft="200dp"
-        />
+        <TextView
+            android:id="@+id/openeingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="-20dp"
+            android:text=""
+            android:textSize="18sp" />
 
 
     <TextView
@@ -194,7 +194,7 @@
         android:layout_height="wrap_content"
         android:text="Capacity"
         android:textColor="@color/textGray"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -216,7 +216,7 @@
         android:layout_height="wrap_content"
         android:text="Ground Type"
         android:textColor="@color/textGray"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -243,7 +243,7 @@
         android:layout_height="wrap_content"
         android:text="Services"
         android:textColor="@color/textGray"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
@@ -262,14 +262,52 @@
             android:layout_marginTop="-28dp"
             android:layout_marginLeft="200dp"
             />
-    <Button
+        <TextView
+            android:id="@+id/textViewprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reservation Price(JOD)"
+            android:textColor="@color/textGray"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginTop="-28dp"
+            android:layout_marginLeft="260dp" />
+        <TextView
+            android:id="@+id/textViewppp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price Per Person(JOD)"
+            android:textColor="@color/textGray"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/pricePerPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="-28dp"
+            android:text=""
+            android:textSize="18sp" />
+
+        <Button
         android:id="@+id/createGameBtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="+ Create Game"
         android:textStyle="bold"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="80dp"/>
+        android:layout_gravity="center"/>
     </LinearLayout>
 
 

@@ -13,11 +13,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.hatrick.databinding.ActivityChangePasswordBinding
-//import com.example.hatrickao.databinding.ActivityChangePasswordBinding
-//import com.example.hatrickao.databinding.ActivityCreateOwnerBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-
 
 class ChangePassword : AppCompatActivity() {
     private lateinit var binding: ActivityChangePasswordBinding
@@ -26,7 +23,6 @@ class ChangePassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_password)
-        val btn_change_password = findViewById<Button>(R.id.saveBtn)
         firebaseAuth = FirebaseAuth.getInstance()
         findViewById<EditText>(R.id.passwordbox).addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(mEdit: Editable) {
@@ -71,7 +67,6 @@ class ChangePassword : AppCompatActivity() {
                 }
             }
         })
-
         findViewById<EditText>(R.id.confpasswordbox).addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(mEdit: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
@@ -86,7 +81,7 @@ class ChangePassword : AppCompatActivity() {
                 }
             }
         })
-        btn_change_password.setOnClickListener {
+        findViewById<Button>(R.id.saveBtn).setOnClickListener {
             changePassword()
         }
         findViewById<TextView>(R.id.cancelBtn).setOnClickListener{
@@ -121,9 +116,16 @@ class ChangePassword : AppCompatActivity() {
                                                 firebaseAuth.signOut()
                                                 startActivity(Intent(this, Signin::class.java))
                                                 finish()
+                                            }else{
+                                                Toast.makeText(this, "Incorrect Current Password", Toast.LENGTH_SHORT).show()
                                             }
                                         }
+                                }else{
+                                    Toast.makeText(this, "Incorrect Current Password", Toast.LENGTH_SHORT).show()
                                 }
+                            }?.addOnFailureListener{
+                                Toast.makeText(this, "Incorrect Current Password", Toast.LENGTH_SHORT).show()
+
                             }
                     }
                 } else {

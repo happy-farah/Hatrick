@@ -8,18 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-
 class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>, private val card: String) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
-
-
     @SuppressLint("MissingInflatedId")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.field_item,
             parent,false)
         val fieldname = itemView.findViewById<TextView>(R.id.FieldName)
@@ -56,13 +51,9 @@ class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>, privat
             fieldRate.setTextColor(android.graphics.Color.parseColor("#4361ee"))
         }
         return MyViewHolder(itemView)
-
     }
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val field : Field = FieldList[position]
-
         holder.fieldName.text = field.fieldName
         holder.address.text = field.address
         val image = field.image
@@ -80,6 +71,9 @@ class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>, privat
             val services = field.services
             val image = field.image
             val fieldId=field.fieldID
+            val pricePerPerson = field.pricePerPerson
+            val wholePrice = field.wholePrice
+            val openingtime = field.openingTimes
             val intent = Intent(c, FieldInfo::class.java)
             intent.putExtra("fieldName",fieldName)
             intent.putExtra("phoneNumber",phone)
@@ -88,29 +82,23 @@ class MyAdapter(var c: Context, private val FieldList : ArrayList<Field>, privat
             intent.putExtra("length",length)
             intent.putExtra("width",width)
             intent.putExtra("capacity",capacity)
+            intent.putExtra("wholePrice",wholePrice)
+            intent.putExtra("pricePerPerson",pricePerPerson)
             intent.putExtra("groundType",groundtype)
             intent.putExtra("services",services)
             intent.putExtra("image", image)
             intent.putExtra("fieldID",fieldId)
+            intent.putExtra("openingTimes", openingtime)
             intent.putExtra("sportType",card)
             c.startActivity(intent)
         }
-
     }
-
     override fun getItemCount(): Int {
-
         return FieldList.size
     }
-
-
     public class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-
         val fieldName : TextView = itemView.findViewById(R.id.FieldName)
         val address : TextView = itemView.findViewById(R.id.FieldLocation)
         val image: ImageView = itemView.findViewById(R.id.fieldImage)
-
     }
-
 }
-

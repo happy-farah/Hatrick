@@ -6,18 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".CreateAcc"
     android:orientation="vertical"
+    android:layout_gravity="center"
     >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+
+        >
 
 
         <TextView
             android:id="@+id/nameLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
@@ -25,13 +28,13 @@
             android:textColor="@color/myDarkGreen"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.156" />
-
+            android:layout_gravity="center"
+            />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
         <EditText
             android:id="@+id/firstNameBox"
             android:layout_width="152dp"
@@ -52,8 +55,8 @@
             android:id="@+id/lastNameBox"
             android:layout_width="152dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="-55dp"
+            android:layout_marginLeft="10dp"
+
             android:ems="10"
             android:hint="Last Name"
             android:inputType="textPersonName"
@@ -64,7 +67,7 @@
             app:layout_constraintStart_toStartOf="@id/nameLab"
             app:layout_constraintTop_toBottomOf="@id/nameLab"
             app:layout_constraintVertical_bias="0.011" />
-
+    </LinearLayout>
         <TextView
             android:id="@+id/BDLab"
             android:layout_width="match_parent"
@@ -75,16 +78,11 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.144"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.311" />
+            android:layout_gravity="center"/>
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp">
+    android:layout_gravity="center">
         <EditText
             android:id="@+id/dayBox"
             android:layout_width="66dp"
@@ -142,9 +140,9 @@
             android:id="@+id/gender"
             android:layout_width="309dp"
             android:layout_height="54dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
+            android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.768"
@@ -186,7 +184,7 @@
 
         <TextView
             android:id="@+id/phoneLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phone Number"
             android:textColor="@color/myDarkGreen"
@@ -194,12 +192,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.134"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
+            android:layout_gravity="center" />
 
 
         <EditText
@@ -211,32 +204,23 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/textGray"
             android:layout_marginLeft="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.485"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailLab"
-            app:layout_constraintVertical_bias="0.025" />
+            android:layout_gravity="center" />
         <TextView
             android:id="@+id/warning"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Wrong Phone Number"
             android:visibility="invisible"
             android:textColor="@color/red"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.134"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
+            android:layout_gravity="center"
+             />
         <TextView
             android:id="@+id/emailLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="E-mail"
             android:textColor="@color/myDarkGreen"
@@ -244,12 +228,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.134"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.596" />
+            android:layout_gravity="center" />
 
         <EditText
             android:id="@+id/emailBox"
@@ -260,16 +239,11 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/textGray"
             android:layout_marginLeft="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.485"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailLab"
-            app:layout_constraintVertical_bias="0.025" />
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/passwordLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
             android:textColor="@color/myDarkGreen"
@@ -277,13 +251,11 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.144"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailLab"
-            app:layout_constraintVertical_bias="0.299" />
+            android:layout_gravity="center" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -298,30 +270,19 @@
             android:inputType="textPassword"
             android:textColor="@color/textGray"
             android:layout_marginLeft="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.347"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordLab"
-            app:layout_constraintVertical_bias="0.061" />
+             />
         </com.google.android.material.textfield.TextInputLayout>
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="-40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.879"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.808"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@drawable/ic_precheck" />
-
+    </LinearLayout>
         <TextView
             android:id="@+id/confpasswordLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Confirm Password"
             android:textColor="@color/myDarkGreen"
@@ -329,13 +290,11 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.144"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordLab"
-            app:layout_constraintVertical_bias="0.299" />
-
+            android:layout_gravity="center" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -362,15 +321,11 @@
             android:id="@+id/checkIcon"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="-40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.879"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.808"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+
             app:srcCompat="@drawable/ic_precheck" />
+    </LinearLayout>
         <ImageView
             android:id="@+id/checkIcon2"
             android:layout_width="25dp"
@@ -482,8 +437,8 @@
             android:text="Sign up"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_marginLeft="120dp"
             android:layout_marginTop="40dp"
+            android:layout_gravity="center"
             />
         <TextView
             android:layout_width="wrap_content"

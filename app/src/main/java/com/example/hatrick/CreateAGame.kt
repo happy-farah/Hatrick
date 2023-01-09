@@ -1,6 +1,7 @@
 package com.example.hatrick
 
 import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_agame)
+
 
         findViewById<EditText>(R.id.dayBox).setOnClickListener {
             DatePickerDialog(
@@ -61,12 +63,27 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
 
         val public = findViewById<Switch>(R.id.publicity)
         var publicity="false"
+        val forPublic = findViewById<LinearLayout>(R.id.forPublic)
+        val reservPrice = findViewById<LinearLayout>(R.id.reservPrice)
+//        forPublic.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+//        reservPrice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+
 
         public?.setOnCheckedChangeListener({ _ , isChecked ->
              if (isChecked) {
-                publicity="true"
-            } else {
+                 publicity="true"
+
+                 forPublic.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+
+                 reservPrice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+
+
+             } else {
                 publicity="false"
+//                 forPublic.visibility = View.INVISIBLE
+                 forPublic.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+                 reservPrice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+
             }
 
     })
@@ -77,15 +94,15 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
         var id = 0
         var id2 = 0
         var nhours = 0
-        var value = findViewById<TextView>(R.id.value1)
-        var plusBtn = findViewById<TextView>(R.id.plusBtn1)
-        var minusBtn = findViewById<TextView>(R.id.minusBtn1)
-        var value2 = findViewById<TextView>(R.id.value2)
-        var plusBtn2 = findViewById<TextView>(R.id.plusBtn2)
-        var minusBtn2 = findViewById<TextView>(R.id.minusBtn2)
-        var hvalue = findViewById<TextView>(R.id.value)
-        var hplusBtn = findViewById<TextView>(R.id.plusBtn)
-        var hminusBtn = findViewById<TextView>(R.id.minusBtn)
+        val value = findViewById<TextView>(R.id.value1)
+        val plusBtn = findViewById<TextView>(R.id.plusBtn1)
+        val minusBtn = findViewById<TextView>(R.id.minusBtn1)
+        val value2 = findViewById<TextView>(R.id.value2)
+        val plusBtn2 = findViewById<TextView>(R.id.plusBtn2)
+        val minusBtn2 = findViewById<TextView>(R.id.minusBtn2)
+        val hvalue = findViewById<TextView>(R.id.value)
+        val hplusBtn = findViewById<TextView>(R.id.plusBtn)
+        val hminusBtn = findViewById<TextView>(R.id.minusBtn)
         hvalue.setText("" + nhours)
 
         hplusBtn.setOnClickListener {
@@ -139,6 +156,75 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
                     }
                 }
             }
+        val createBtn = findViewById<Button>(R.id.createGameBtn)
+//        val plusButn = findViewById<Button>(R.id.plusBtn)
+//        val minusButn = findViewById<Button>(R.id.minusBtn)
+//        val plusButn1 = findViewById<Button>(R.id.plusBtn1)
+//        val minusButn1 = findViewById<Button>(R.id.minusBtn1)
+//        val plusButn2 = findViewById<Button>(R.id.plusBtn2)
+//        val minusButn2 = findViewById<Button>(R.id.minusBtn2)
+
+        if (sportType=="Football")
+        {
+            createBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+        }
+        if (sportType=="Basketball")
+        {
+            createBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+        }
+        if (sportType=="Tennis")
+        {
+            createBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+        }
+        if (sportType=="Handball")
+        {
+            createBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+        }
+        if (sportType=="Badminton")
+        {
+            createBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+        }
+        if (sportType=="Volleyball")
+        {
+            createBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+        }
+
         val year =findViewById<EditText>(R.id.yearBox).text.toString()
         val month =findViewById<EditText>(R.id.monBox).text.toString()
         val day =findViewById<EditText>(R.id.dayBox).text.toString()
@@ -193,6 +279,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
                         value2.text.toString().toInt(),
                         reservDate,
                         time,
+                        pricePerPerson.text.toString().toFloat(),
                         wholePrice.text.toString().toFloat())
 
                 }
@@ -209,6 +296,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
                             value2.text.toString().toInt(),
                             reservDate,
                             time,
+                            pricePerPerson.text.toString().toFloat(),
                             wholePrice.text.toString().toFloat())
                     }
 
@@ -257,7 +345,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
         return flag
     }
 
-    private fun createGame(fieldID:String? = null,publicity:String? = null,fieldName:String? = null,sportType:String? = null,hvalue : Int? = null,value : Int? = null, value2 : Int? = null, reservDate:String? = null, time:String? = null, wholePrice:Float? = null) {
+    private fun createGame(fieldID:String? = null,publicity:String? = null,fieldName:String? = null,sportType:String? = null,hvalue : Int? = null,value : Int? = null, value2 : Int? = null, reservDate:String? = null, time:String? = null, pricePerPerson:Float? = null, wholePrice:Float? = null) {
         database = FirebaseDatabase.getInstance().getReference("Reservations")
         val game = Reservation(
             fieldID,

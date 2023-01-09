@@ -14,12 +14,10 @@ class GamesListActivity : AppCompatActivity() {
     private lateinit var recyclerview : RecyclerView
     private lateinit var gameArrayList : ArrayList<Reservation>
     private lateinit var gameAdapter: GameAdapter
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_games_list)
-
         recyclerview = findViewById(R.id.gameList)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.setHasFixedSize(true)
@@ -27,14 +25,13 @@ class GamesListActivity : AppCompatActivity() {
         gameArrayList = arrayListOf()
         gameAdapter = GameAdapter(this,gameArrayList, card)
         recyclerview.adapter = gameAdapter
-
         EventChangeListener()
 
     }
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
-        val card = intent.getStringExtra("sportType")
-        db.collection("Reservations")
+        val card = intent.getStringExtra("card")
+        db.collection("Reservations").whereEqualTo("sportType",card)
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                     if (error != null) {

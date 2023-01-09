@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Home">
+    tools:context=".Home"
+    android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/upComing"
@@ -41,7 +43,7 @@
                         android:layout_marginTop="13dp"
                         android:text="Upcoming Games"
                         android:textColor="@color/myDarkGreen"
-                        android:textSize="28sp"
+                        android:textSize="25sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -97,7 +99,7 @@
                         android:layout_marginTop="13dp"
                         android:text="History"
                         android:textColor="@color/myDarkGreen"
-                        android:textSize="28sp"
+                        android:textSize="25sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -152,7 +154,7 @@
                         android:layout_marginTop="13dp"
                         android:text="Favorite Fields"
                         android:textColor="@color/myDarkGreen"
-                        android:textSize="28sp"
+                        android:textSize="25sp"
                         android:textStyle="bold" />
 
                     <TextView

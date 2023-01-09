@@ -13,16 +13,18 @@
             android:layout_height="200dp"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/sports"
-            tools:ignore="InvalidId" />
+            tools:ignore="InvalidId"
+            android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/emailLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="E-mail"
             android:textColor="@color/myDarkGreen"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="30dp"
+            android:layout_gravity="center"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,8 +38,8 @@
             android:id="@+id/LoginEmail"
             android:layout_width="310dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="30dp"
             android:editable="false"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="example@example.com"
             android:inputType="textEmailAddress"
@@ -50,12 +52,13 @@
             app:layout_constraintVertical_bias="0.137" />
         <TextView
             android:id="@+id/passwordLab"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password"
             android:textColor="@color/myDarkGreen"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -69,6 +72,7 @@
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/white"
             app:passwordToggleEnabled="true"
+            android:layout_gravity="center"
             >
 
         <EditText
@@ -78,13 +82,8 @@
             android:ems="10"
             android:inputType="textPassword"
             android:textColor="@color/textGray"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.455"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LoginEmail"
-            app:layout_constraintVertical_bias="0.126"
+            android:layout_gravity="center"
+
             />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,13 +111,14 @@
         <!--        </com.google.android.material.textfield.TextInputLayout>-->
         <TextView
             android:id="@+id/forgetPass"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Forgot your password?"
             android:textColor="#009900"
             android:textSize="16sp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/LoginBtn"
             app:layout_constraintEnd_toEndOf="@+id/LoginPass"
@@ -133,14 +133,8 @@
             android:backgroundTint="@color/myDarkGreen"
             android:text="Sign in"
             android:textColor="@color/white"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LoginPass"
-            app:layout_constraintVertical_bias="0.293" />
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/DontHavAcc"
@@ -151,12 +145,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LoginBtn"
-            app:layout_constraintVertical_bias="0.175" />
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/CreateAcc"
@@ -167,8 +156,7 @@
             android:textColor="#009900"
             android:textSize="16sp"
             android:layout_marginTop="0dp"
-            android:layout_marginLeft="130dp"
-            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"            android:layout_marginBottom="50dp"
             android:textStyle="bold"
              />
 

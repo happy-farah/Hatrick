@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".EditProfile">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
 
 
         <TextView
@@ -259,7 +260,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="15dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    >
         <Button
             android:id="@+id/saveBtn"
             android:layout_width="wrap_content"
@@ -267,8 +270,7 @@
             android:text="Save Information"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_marginLeft="70dp"
-
+            android:layout_gravity="center"
             />
     <Button
         android:id="@+id/changePass"
@@ -277,7 +279,8 @@
         android:text="Change Password"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_marginLeft="70dp"
+        android:layout_gravity="center"
+
 
         />
         <Button
@@ -289,7 +292,7 @@
             android:textColor="@color/textGray"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
-            android:layout_marginLeft="120dp"
+            android:layout_gravity="center"
             />
     </LinearLayout>
 

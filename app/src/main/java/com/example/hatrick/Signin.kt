@@ -31,7 +31,7 @@ class Signin : AppCompatActivity() {
                         startActivity(intent)
                     }
                     else{
-                        Toast.makeText(this,it.exception.toString() , Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Incorrect email or password" , Toast.LENGTH_SHORT).show()
                     }
                 }
             }

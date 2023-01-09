@@ -109,16 +109,6 @@ class Home : Fragment() {
             intent.putExtra("card","Volleyball")
             startActivity(intent)
         }
-//        val FF = v.findViewById<TextView>(R.id.footballLab)
-//        FF.setOnClickListener {
-//                Toast.makeText(context,"Football", Toast.LENGTH_SHORT).show()
-//        }
-//        val FRules = v.findViewById<TextView>(R.id.footballRulesImg)
-//        FRules.setOnClickListener {
-//            var dial = FootballRules()
-//            dial.show(childFragmentManager,"FootballRules")
-//        }
-        // Inflate the layout for this fragment
         return v
     }
     companion object {

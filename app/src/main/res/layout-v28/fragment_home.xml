@@ -21,16 +21,12 @@
                 android:id="@+id/footballCard"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/myDarkGreen"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_gravity="center">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -50,21 +46,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
                         android:text="@string/football"
                         android:textColor="@color/myDarkGreen"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/footballNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/number_of_fields"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
+
 
                     <ImageView
                         android:id="@+id/footballRulesImg"
@@ -93,16 +82,13 @@
                 android:id="@+id/basketballCard"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/orange"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -122,22 +108,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Basketball"
                         android:textColor="@color/orange"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/basketballNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/number_of_fields"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/basketballRulesImg"
@@ -166,16 +143,13 @@
                 android:id="@+id/tennisCard"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/tennisColor"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -195,22 +169,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="13dp"
-                        android:text="Tennis"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"                        android:text="Tennis"
                         android:textColor="@color/tennisColor"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tennisNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/number_of_fields"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/tennisRulesImg"
@@ -239,16 +203,13 @@
                 android:id="@+id/handballCard"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/dark_navy"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -268,21 +229,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="13dp"
-                        android:text="Handball"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"                        android:text="Handball"
                         android:textColor="@color/dark_navy"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/handballNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/number_of_fields"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/handballRulesImg"
@@ -311,16 +263,13 @@
                 android:id="@+id/badmintonCard"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/brown"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -340,21 +289,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="13dp"
-                        android:text="Badminton"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"                        android:text="Badminton"
                         android:textColor="@color/brown"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/badmintonNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/number_of_fields"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/badmintonRulesImg"
@@ -383,16 +322,13 @@
                 android:id="@+id/volleyballCard"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/blue"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -412,21 +348,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="13dp"
-                        android:text="Volleyball"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"                        android:text="Volleyball"
                         android:textColor="@color/blue"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/volleyballNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/number_of_fields"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/volleyballRulesImg"

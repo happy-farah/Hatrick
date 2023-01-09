@@ -29,17 +29,14 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private val Dformatter = SimpleDateFormat("d")
     private val Mformatter = SimpleDateFormat("MM")
     private val Yformatter = SimpleDateFormat("yyyy")
-    private lateinit var selectedgender: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_acc)
-
         binding = ActivityCreateAccBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
-
         findViewById<EditText>(R.id.dayBox).setOnClickListener {
             DatePickerDialog(
                 this,
@@ -67,24 +64,13 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
-        var genderr = findViewById<RadioGroup>(R.id.gender)
-
-        genderr.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener { group, checkedId ->
-                selectedgender = genderr.checkedRadioButtonId.toString()
-                if (selectedgender == "2131231123")
-                {
-                    selectedgender="Male"
-                }
-                else if (selectedgender == "2131231008")
-                {
-                    selectedgender="Female"
-                }
-
-            })
 
         findViewById<EditText>(R.id.passwordbox).addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(mEdit: Editable) {}
+            override fun afterTextChanged(mEdit: Editable) {
+                if (ValidatePassword()){
+                    findViewById<ImageView>(R.id.imageView).setColorFilter(Color.parseColor("#009900"))
+                }
+            }
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 val pass = binding.passwordbox.text.toString()
@@ -188,7 +174,9 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             }
 
             val YDOB =binding.yearBox.text.toString()
-            val gender = selectedgender
+            val radioGroup = findViewById<RadioGroup>(R.id.gender)
+            val selectedOption: Int = radioGroup.checkedRadioButtonId
+            val gender = findViewById<RadioButton>(selectedOption)
             val phone =binding.phoneBox.text.toString()
             val email =binding.emailBox.text.toString()
             val password =binding.passwordbox.text.toString()
@@ -198,7 +186,7 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val codephone = binding.phoneBox.text.take(3).toString()
             val CurrentYear = Calendar.getInstance().get(Calendar.YEAR)
 
-            if (fname.isNotEmpty() && lname.isNotEmpty() && DDOB.isNotEmpty() && MDOB.isNotEmpty() && YDOB.isNotEmpty() && gender.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confPass.isNotEmpty()) {
+            if (fname.isNotEmpty() && lname.isNotEmpty() && DDOB.isNotEmpty() && MDOB.isNotEmpty() && YDOB.isNotEmpty() && gender.isChecked && phone.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confPass.isNotEmpty()) {
                 if(YDOB < (CurrentYear-5).toString()) {
                     if (phone.length == 10) {
                         if (codephone.equals("079") || codephone.equals("078") || codephone.equals("077")) {
@@ -215,7 +203,7 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                                                     fname,
                                                     lname,
                                                     DOB,
-                                                    gender,
+                                                    gender.text.toString(),
                                                     phone,
                                                     email
                                                 )

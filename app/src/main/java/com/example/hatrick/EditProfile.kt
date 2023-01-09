@@ -14,7 +14,6 @@ import java.util.*
 
 class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var selectedgender: String
     private val calendar = Calendar.getInstance()
     private val Dformatter = SimpleDateFormat("d")
     private val Mformatter = SimpleDateFormat("MM")
@@ -52,16 +51,6 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
-        var genderr = findViewById<RadioGroup>(R.id.gender)
-        genderr.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener { group, checkedId ->
-                selectedgender = genderr.checkedRadioButtonId.toString()
-                if (selectedgender == "2131231124") {
-                    selectedgender = "Male"
-                } else if (selectedgender == "2131231008") {
-                    selectedgender = "Female"
-                }
-            })
         val FN = findViewById<EditText>(R.id.firstNameBox)
         val LN = findViewById<EditText>(R.id.lastNameBox)
         val Day = findViewById<EditText>(R.id.dayBox)
@@ -87,9 +76,9 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
                         Year.setText(year)
                         val Gend = (doc.data.getValue("gender") as CharSequence?).toString()
                         if (Gend == "Male") {
-                            Gender.check(2131231124)
+                            Gender.check(2131296600)
                         } else if (Gend == "Female") {
-                            Gender.check(2131231008)
+                            Gender.check(2131296505)
                         }
                         PN.setText(doc.data.getValue("phoneNumber") as CharSequence?)
                     }
@@ -97,17 +86,21 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
             }
         val Save = findViewById<Button>(R.id.saveBtn)
         Save.setOnClickListener {
-            val gender = selectedgender
+            val radioGroup = findViewById<RadioGroup>(R.id.gender)
+            val selectedOption: Int = radioGroup.checkedRadioButtonId
+            val gender = findViewById<RadioButton>(selectedOption)
             if(Day.text.toString().length<2){
                 Day.setText("0"+Day.text)
             }
             if(Month.text.toString().length<2){
                 Month.setText("0"+Month.text)
             }
-
             val newDOB =
                 Day.text.toString() + "/" + Month.text.toString() + "/" + Year.text.toString()
-            UserFireData.collection("Owners").document(getCurrentUserID())
+            val codephone = findViewById<EditText>(R.id.phoneBox).text.take(3).toString()
+            if (PN.length() == 10) {
+                if (codephone.equals("079") || codephone.equals("078") || codephone.equals("077")) {
+                    UserFireData.collection("users").document(getCurrentUserID())
                 .update(
                     "firstName",
                     FN.text.toString(),
@@ -122,7 +115,14 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
                 )
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }else {
+            Toast.makeText(this, "Incorrect Phone Number", Toast.LENGTH_SHORT)
+                .show()
         }
+    } else {
+        Toast.makeText(this, "Incorrect Phone Number", Toast.LENGTH_SHORT).show()
+    }
+
         val changePass = findViewById<Button>(R.id.changePass)
         changePass.setOnClickListener {
             val intent = Intent(this, ChangePassword::class.java)
@@ -132,6 +132,7 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+    }
     }
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         calendar.set(year, month, dayOfMonth)
