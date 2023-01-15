@@ -17,4 +17,9 @@
     <string name="_5_frule">5. The aim of the game is to score a goal, which is achieved by kicking or heading the ball into the opposition team\'s goal.</string>
     <string name="_4_frule">4. All players must use their feet head or chest to play the ball. Only the goalkeeper is allowed to use their hands, and only within their designated goal area.</string>
     <string name="_3_frule">3. The game begins with the toss of a coin, and the winning captain decides which goal to defend or to take the first kick off.</string>
+    <string name="_1_BSRule">1. Players move the ball around the court using dribbling, passing, tapping, rolling, and throwing techniques.</string>
+    <string name="_2_BSRule">2. Each player can take two taps before the ball hits the ground, a basket, a backboard or another player.</string>
+    <string name="_3_BSRule">3. the most important rule is that you are not allowed to run with the ball.</string>
+    <string name="_4_BSRule">4. Players must pass the ball to a teammate or shoot for goal after putting two hands on the ball (not including catching it).</string>
+    <string name="_5_BSRule">5. Winning possession of the ball in your own half means you must travel over the half way line within 10 seconds to avoid a foul.</string>
 </resources>

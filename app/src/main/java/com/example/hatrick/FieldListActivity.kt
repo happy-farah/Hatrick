@@ -40,7 +40,7 @@ class FieldListActivity : AppCompatActivity() {
             .addSnapshotListener(object : EventListener<QuerySnapshot>{
             @RequiresApi(Build.VERSION_CODES.Q)
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                this@FieldListActivity.title = FieldIntent.getStringExtra("fieldName").toString()
+//                this@FieldListActivity.title = FieldIntent.getStringExtra("sportType").toString() + "Fields"
                 if (error != null) {
                     Log.e("Firestore Error", error.message.toString())
                     return

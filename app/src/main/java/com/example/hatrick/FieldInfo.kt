@@ -48,32 +48,42 @@ class FieldInfo : AppCompatActivity() {
         val uri = image?.toUri()
         Picasso.get().load(uri).into(findViewById<ImageView>(R.id.img))
         val fieldID = FieldIntent.getStringExtra("fieldID")
+        this@FieldInfo.title = FieldIntent.getStringExtra("fieldName").toString()
 
 
         val createGame = findViewById<Button>(R.id.createGameBtn)
+        val name= findViewById<TextView>(R.id.fieldNameTxt)
+
         if (sporttype=="Football")
         {
             createGame.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            name.setTextColor(android.graphics.Color.parseColor("#009900"))
+
         }
         if (sporttype=="Basketball")
         {
             createGame.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            name.setTextColor(android.graphics.Color.parseColor("#FF5207"))
         }
         if (sporttype=="Tennis")
         {
             createGame.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            name.setTextColor(android.graphics.Color.parseColor("#AAEE00"))
         }
         if (sporttype=="Handball")
         {
             createGame.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            name.setTextColor(android.graphics.Color.parseColor("#023e7d"))
         }
         if (sporttype=="Badminton")
         {
             createGame.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            name.setTextColor(android.graphics.Color.parseColor("#ae2012"))
         }
         if (sporttype=="Volleyball")
         {
             createGame.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            name.setTextColor(android.graphics.Color.parseColor("#4361ee"))
         }
         
         createGame.setOnClickListener {

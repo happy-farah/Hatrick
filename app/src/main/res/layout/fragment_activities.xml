@@ -10,15 +10,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center_horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/upComing"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/myDarkGreen"
@@ -74,9 +75,9 @@
                 android:id="@+id/history"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:outlineSpotShadowColor="@color/myDarkGreen"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
@@ -129,9 +130,9 @@
                 android:id="@+id/favorites"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="30dp"
                 android:outlineSpotShadowColor="@color/myDarkGreen"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"

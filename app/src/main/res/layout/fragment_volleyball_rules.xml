@@ -21,7 +21,6 @@
             android:orientation="vertical"
             android:background="@color/white"
             android:layout_marginBottom="7dp"
-            android:paddingBottom="300dp"
 
             >
             <TextView
@@ -40,7 +39,7 @@
                 android:id="@+id/rule1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_1_frule"
+                android:text="1. Each team consist of 6 players and 6 substitutes. Players can be substituted at any time but if they are to return can only be swapped for the player that replaced them."
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -53,7 +52,7 @@
                 android:id="@+id/rule2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_2_frule"
+                android:text="2. Each team can hit the ball up to three times before the ball must be returned. The defensive team can then try and block or return the ball again hitting it a maximum of three times."
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -65,7 +64,7 @@
                 android:id="@+id/rule3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_3_frule"
+                android:text="3. Games are played up to 25 points and must be won by 2 clear points."
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -73,41 +72,7 @@
                 android:paddingBottom="20dp"
                 android:textAlignment="inherit"
                 />
-            <TextView
-                android:id="@+id/rule4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/_4_frule"
-                android:textColor="@color/textGray"
-                android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp"
-                android:textAlignment="inherit"
-                />
-            <TextView
-                android:id="@+id/rule5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/_5_frule"
-                android:textColor="@color/textGray"
-                android:textSize="15sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp"
-                android:textAlignment="inherit"
-                /><TextView
-            android:id="@+id/rule6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_6_frule"
-            android:textColor="@color/textGray"
-            android:textSize="15sp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="20dp"
-            android:textAlignment="inherit"
-            />
+
 
         </LinearLayout>
     </LinearLayout>

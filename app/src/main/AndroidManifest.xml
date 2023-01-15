@@ -110,7 +110,7 @@
         <activity
             android:name=".FieldListActivity"
             android:exported="true"
-            android:label="Available fields"
+            android:label="fields"
             >
             <meta-data
                 android:name="android.app.lib_name"
@@ -165,7 +165,7 @@
         <activity
             android:name=".Signin"
             android:exported="true"
-            android:label="Sign In">
+            android:label="Hatrick">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

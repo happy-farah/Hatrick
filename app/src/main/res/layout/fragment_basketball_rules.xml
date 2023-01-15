@@ -17,11 +17,11 @@
         >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/white"
         android:layout_marginBottom="7dp"
-        android:paddingBottom="300dp"
+
 
         >
             <TextView
@@ -40,7 +40,7 @@
                 android:id="@+id/rule1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_1_frule"
+                android:text="@string/_1_BSRule"
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -53,7 +53,7 @@
                 android:id="@+id/rule2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_2_frule"
+                android:text="@string/_2_BSRule"
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -65,7 +65,7 @@
                 android:id="@+id/rule3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_3_frule"
+                android:text="@string/_3_BSRule"
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -77,7 +77,7 @@
                 android:id="@+id/rule4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_4_frule"
+                android:text="@string/_4_BSRule"
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
@@ -89,25 +89,14 @@
                 android:id="@+id/rule5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/_5_frule"
+                android:text="@string/_5_BSRule"
                 android:textColor="@color/textGray"
                 android:textSize="15sp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
                 android:textAlignment="inherit"
-                /><TextView
-            android:id="@+id/rule6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/_6_frule"
-            android:textColor="@color/textGray"
-            android:textSize="15sp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="20dp"
-            android:textAlignment="inherit"
-            />
+                />
 
         </LinearLayout>
         </LinearLayout>

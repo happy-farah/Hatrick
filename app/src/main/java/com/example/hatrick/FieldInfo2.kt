@@ -26,6 +26,7 @@ class FieldInfo2 : AppCompatActivity() {
                     for (doc in it.result!!) {
                         val image = doc.data.getValue("image").toString()
                         val uri = image?.toUri()
+                        val sporttype = FieldIntent.getStringExtra("sportType")
                         Picasso.get().load(uri).into(findViewById<ImageView>(R.id.img))
                         findViewById<TextView>(R.id.fieldNameTxt).setText(doc.data.getValue("fieldName") as CharSequence?)
                         findViewById<TextView>(R.id.phoneNumber).setText(doc.data.getValue("phoneNumber") as CharSequence?)
@@ -40,6 +41,36 @@ class FieldInfo2 : AppCompatActivity() {
                         findViewById<TextView>(R.id.groundType).setText(doc.data.getValue("groundType")as CharSequence?)
                         findViewById<TextView>(R.id.services).setText(doc.data.getValue("services")as CharSequence?)
                         findViewById<TextView>(R.id.openeingTime).setText(doc.data.getValue("openingTimes")as CharSequence?)
+
+                        this@FieldInfo2.title = FieldIntent.getStringExtra("fieldName").toString()
+
+                        val name= findViewById<TextView>(R.id.fieldNameTxt)
+
+                        if (sporttype=="Football")
+                        {
+                            name.setTextColor(android.graphics.Color.parseColor("#009900"))
+
+                        }
+                        if (sporttype=="Basketball")
+                        {
+                            name.setTextColor(android.graphics.Color.parseColor("#FF5207"))
+                        }
+                        if (sporttype=="Tennis")
+                        {
+                            name.setTextColor(android.graphics.Color.parseColor("#AAEE00"))
+                        }
+                        if (sporttype=="Handball")
+                        {
+                            name.setTextColor(android.graphics.Color.parseColor("#023e7d"))
+                        }
+                        if (sporttype=="Badminton")
+                        {
+                            name.setTextColor(android.graphics.Color.parseColor("#ae2012"))
+                        }
+                        if (sporttype=="Volleyball")
+                        {
+                            name.setTextColor(android.graphics.Color.parseColor("#4361ee"))
+                        }
                     }
                 }
             }
