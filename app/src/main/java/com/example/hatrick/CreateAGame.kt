@@ -1,9 +1,9 @@
 package com.example.hatrick
 
 import android.annotation.SuppressLint
-import android.app.ActionBar
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -17,22 +17,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
-class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
     private val calendar = Calendar.getInstance()
-    private val formatter = SimpleDateFormat("hh", Locale.US)
+    private var stime = 0
+    private var ftime = 0
+    private lateinit var finishTime: String
     private lateinit var database: DatabaseReference
     private val Dformatter = SimpleDateFormat("d")
     private val Mformatter = SimpleDateFormat("MM")
     private val Yformatter = SimpleDateFormat("yyyy")
-
-
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_agame)
-
-
         findViewById<EditText>(R.id.dayBox).setOnClickListener {
             DatePickerDialog(
                 this,
@@ -60,361 +59,485 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener, Ti
                 calendar.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
-
-        val public = findViewById<Switch>(R.id.publicity)
-        var publicity="false"
-        val forPublic = findViewById<LinearLayout>(R.id.forPublic)
-        val reservPrice = findViewById<LinearLayout>(R.id.reservPrice)
-//        forPublic.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
-//        reservPrice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-
-
-        public?.setOnCheckedChangeListener({ _ , isChecked ->
-             if (isChecked) {
-                 publicity="true"
-
-                 forPublic.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-
-                 reservPrice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
-
-
-             } else {
-                publicity="false"
-//                 forPublic.visibility = View.INVISIBLE
-                 forPublic.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
-                 reservPrice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-
+        val mTimePicker: TimePickerDialog
+        val mcurrentTime = Calendar.getInstance()
+        val hour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
+        val minute = mcurrentTime.get(Calendar.MINUTE)
+        mTimePicker = TimePickerDialog(this, object : TimePickerDialog.OnTimeSetListener {
+            override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+                val AM_PM: String
+                AM_PM = if (hourOfDay < 12) {
+                    "AM"
+                } else {
+                    "PM"
+                }
+                findViewById<EditText>(R.id.time).setText(String.format("$hourOfDay $AM_PM"))
+                stime = hourOfDay
             }
-
-    })
-
-
-
-
-        var id = 0
-        var id2 = 0
-        var nhours = 0
-        val value = findViewById<TextView>(R.id.value1)
-        val plusBtn = findViewById<TextView>(R.id.plusBtn1)
-        val minusBtn = findViewById<TextView>(R.id.minusBtn1)
-        val value2 = findViewById<TextView>(R.id.value2)
-        val plusBtn2 = findViewById<TextView>(R.id.plusBtn2)
-        val minusBtn2 = findViewById<TextView>(R.id.minusBtn2)
+        }, hour, minute, false)
+        findViewById<EditText>(R.id.time).setOnClickListener{
+            mTimePicker.show()
+        }
+        var nohours = 0
         val hvalue = findViewById<TextView>(R.id.value)
         val hplusBtn = findViewById<TextView>(R.id.plusBtn)
         val hminusBtn = findViewById<TextView>(R.id.minusBtn)
-        hvalue.setText("" + nhours)
-
+        hvalue.text = "" + nohours
         hplusBtn.setOnClickListener {
-            hvalue.setText("" + ++nhours)
+            hvalue.text = "" + ++nohours
         }
-
         hminusBtn.setOnClickListener {
-            hvalue.setText("" + --nhours)
+            if (nohours > 0 ) {
+                hvalue.text = "" + --nohours
+            }
         }
 
-        value.setText("" + id)
-
-        plusBtn.setOnClickListener {
-            value.setText("" + ++id)
-        }
-
-        minusBtn.setOnClickListener {
-            value.setText("" + --id)
-        }
-        value2.setText("" + id2)
-
-        plusBtn2.setOnClickListener {
-            value2.setText("" + ++id2)
-        }
-
-        minusBtn2.setOnClickListener {
-            value2.setText("" + --id2)
-        }
-
-
-
-
-        val FieldInfoIntent = intent
-        val fieldID = FieldInfoIntent.getStringExtra("fieldID").toString()
-        val fieldName = FieldInfoIntent.getStringExtra("fieldName")
-        val sportType = FieldInfoIntent.getStringExtra("sportType")
-        val wholePrice = findViewById<TextView>(R.id.priceR)
+        val fieldInfoIntent = intent
+        val fieldID = fieldInfoIntent.getStringExtra("fieldID").toString()
+        val ownerId = fieldInfoIntent.getStringExtra("ownerId")
+        val fieldName = fieldInfoIntent.getStringExtra("fieldName")
+        val sportType = fieldInfoIntent.getStringExtra("sportType")
         val pricePerPerson = findViewById<TextView>(R.id.pricePP)
-        val FieldData = FirebaseFirestore.getInstance()
-
-
-
-        FieldData.collection("Fields").whereEqualTo("fieldID", fieldID)
+        val price = findViewById<TextView>(R.id.priceR)
+        val fieldData = FirebaseFirestore.getInstance()
+        var tPrice = 0F
+        var capacity = 0
+        var openingtime = ""
+        fieldData.collection("Fields").whereEqualTo("fieldID", fieldID)
             .get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     for (doc in it.result!!) {
-                        val swholePrice = doc.data.getValue("wholePrice").toString()
-                        wholePrice.setText(swholePrice as CharSequence?)
                         val spricePerPerson = doc.data.getValue("pricePerPerson").toString()
                         pricePerPerson.setText(spricePerPerson as CharSequence?)
+                        val rPrice = doc.data.getValue("wholePrice").toString()
+                        price.setText(rPrice as CharSequence?)
+                        tPrice = price.text.toString().toFloat()
+                        capacity = doc.data.getValue("capacity").toString().toInt()
+                        openingtime = doc.data.getValue("openingTimes").toString()
                     }
                 }
             }
-        val createBtn = findViewById<Button>(R.id.createGameBtn)
-//        val plusButn = findViewById<Button>(R.id.plusBtn)
-//        val minusButn = findViewById<Button>(R.id.minusBtn)
-//        val plusButn1 = findViewById<Button>(R.id.plusBtn1)
-//        val minusButn1 = findViewById<Button>(R.id.minusBtn1)
-//        val plusButn2 = findViewById<Button>(R.id.plusBtn2)
-//        val minusButn2 = findViewById<Button>(R.id.minusBtn2)
+        var myPlayers = 0
+        val value = findViewById<TextView>(R.id.valuemy)
+        val plusBtn = findViewById<TextView>(R.id.plusBtnmy)
+        val minusBtn = findViewById<TextView>(R.id.minusBtnmy)
+        value.setText("" + myPlayers)
+        val pvalue2 = findViewById<TextView>(R.id.valuemin)
+        plusBtn.setOnClickListener {
+            if (myPlayers < capacity ){
+            value.setText("" + ++myPlayers)
+            pvalue2.setText("" + myPlayers)
+            }
+        }
 
-        if (sportType=="Football")
-        {
+        minusBtn.setOnClickListener {
+            if (myPlayers > 0 )
+            {
+            value.setText("" + --myPlayers)
+            pvalue2.setText("" + myPlayers)
+            }
+        }
+
+        var minNOPlayers = myPlayers
+
+        val hplusBtn2 = findViewById<TextView>(R.id.plusBtnmin)
+        val hminusBtn2 = findViewById<TextView>(R.id.minusBtnmin)
+        pvalue2.text = minNOPlayers.toString()
+        minNOPlayers = myPlayers
+        hplusBtn2.setOnClickListener {
+            if (minNOPlayers < capacity )
+            {
+            pvalue2.text = "" + ++minNOPlayers
+            }
+        }
+        hminusBtn2.setOnClickListener {
+            if (minNOPlayers > 0 )
+            {
+                pvalue2.text = "" + --minNOPlayers
+            }
+        }
+
+        val check = findViewById<Button>(R.id.checktime)
+        check.setOnClickListener {
+            val y = findViewById<EditText>(R.id.yearBox).text.toString().toInt()
+            val m = findViewById<EditText>(R.id.monBox).text.toString().toInt()
+            val d = findViewById<EditText>(R.id.dayBox).text.toString().toInt()
+            val checked= datevalidation(d, m, y)
+            if (checked==1) {
+                var resercheck = checkReservations(fieldID, openingtime, hvalue.text.toString().toInt())
+                if (resercheck == 1) {
+                    Toast.makeText(
+                        this,
+                        "Not Reserved",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else if (resercheck == 0){
+                    Toast.makeText(
+                        this,
+                        "Already Reserved111",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else if (resercheck == 2){
+                    Toast.makeText(
+                        this,
+                        "Field opening time $openingtime",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+                    resercheck = checkReservations(fieldID, openingtime, hvalue.text.toString().toInt())
+                    if (resercheck == 1) {
+                        Toast.makeText(
+                            this,
+                            "Not Reserved",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else if (resercheck == 0){
+                        Toast.makeText(
+                            this,
+                            "Already Reserved222",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }else if (resercheck == 2){
+                        Toast.makeText(
+                            this,
+                            "Field opening time $openingtime",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }else {
+            Toast.makeText(this, "Invalid Date", Toast.LENGTH_SHORT).show()
+        }
+        }
+        val public = findViewById<Switch>(R.id.publicity)
+        var publicity = "false"
+        val forPublic = findViewById<LinearLayout>(R.id.forPublic)
+        val reservPrice = findViewById<LinearLayout>(R.id.reservPrice)
+        public?.setOnCheckedChangeListener({ _, isChecked ->
+            if (isChecked) {
+                publicity = "true"
+                forPublic.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                reservPrice.layoutParams =
+                    LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+            } else {
+                publicity = "false"
+                forPublic.layoutParams =
+                    LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)
+                reservPrice.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+            }
+        })
+
+        val checktym = findViewById<Button>(R.id.checktime)
+
+        val createBtn = findViewById<Button>(R.id.createGameBtn)
+        if (sportType == "Football") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
             plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
             minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
-            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
-            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            hplusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            hminusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            checktym.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
         }
-        if (sportType=="Basketball")
-        {
+        if (sportType == "Basketball") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
             plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
             minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
-            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
-            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            hplusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            hminusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            checktym.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
         }
-        if (sportType=="Tennis")
-        {
+        if (sportType == "Tennis") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
             plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
             minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
-            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
-            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            hplusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            hminusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            checktym.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
         }
-        if (sportType=="Handball")
-        {
+        if (sportType == "Handball") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
             plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
             minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
-            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
-            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            hplusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            hminusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            checktym.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
         }
-        if (sportType=="Badminton")
-        {
+        if (sportType == "Badminton") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
             plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
             minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
-            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
-            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            hplusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            hminusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            checktym.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
         }
-        if (sportType=="Volleyball")
-        {
+        if (sportType == "Volleyball") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             plusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             minusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
-            plusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
-            minusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            hplusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            hminusBtn2.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            checktym.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
         }
-
-        val year =findViewById<EditText>(R.id.yearBox).text.toString()
-        val month =findViewById<EditText>(R.id.monBox).text.toString()
-        val day =findViewById<EditText>(R.id.dayBox).text.toString()
-        val time =findViewById<EditText>(R.id.time).text.toString()
-        val reservDate = day +"/"+ month +"/"+ year
-        val CurrentYear = Calendar.getInstance().get(Calendar.YEAR).toString()
-        val Currentmonth = Calendar.getInstance().get(Calendar.MONTH).toString()
-        val Currentday = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
-
-
-        findViewById<EditText>(R.id.time).addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(mEdit: Editable) {
-                val time =findViewById<EditText>(R.id.time).text.toString()
-                val warning = findViewById<TextView>(R.id.warning)
-                if(checkTime(fieldID ,reservDate, time)==false){
-                    warning.setVisibility(View.VISIBLE);
-                }
-            }
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                val time = findViewById<EditText>(R.id.time).text.toString()
-                val warning = findViewById<TextView>(R.id.warning)
-                if (checkTime(fieldID, reservDate, time)==false) {
-                    warning.setVisibility(View.VISIBLE);
-                }
-            }
-
-                     })
 
         val create = findViewById<Button>(R.id.createGameBtn)
         create.setOnClickListener {
-            val year =findViewById<EditText>(R.id.yearBox).text.toString()
-            val month =findViewById<EditText>(R.id.monBox).text.toString()
-            val day =findViewById<EditText>(R.id.dayBox).text.toString()
-            val time =findViewById<EditText>(R.id.time).text.toString()
-            val reservDate = day +"/"+ month +"/"+ year
-            val CurrentYear = Calendar.getInstance().get(Calendar.YEAR).toString()
-            val Currentmonth = Calendar.getInstance().get(Calendar.MONTH).toString()
-            val Currentday = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
-            val Currentdate = Calendar.getInstance().get(Calendar.DATE)
-
-            if (CurrentYear==year)
-            {
-                if (Currentmonth<month)
-                {
-                    createGame(fieldID,
-                        publicity,
-                        fieldName,
-                        sportType,
-                        hvalue.text.toString().toInt(),
-                        value.text.toString().toInt(),
-                        value2.text.toString().toInt(),
-                        reservDate,
-                        time,
-                        pricePerPerson.text.toString().toFloat(),
-                        wholePrice.text.toString().toFloat())
-
-                }
-                if(month==Currentmonth)
-                {
-                    if(Currentday<=day)
-                    {
-                        createGame(fieldID,
-                            publicity,
-                            fieldName,
-                            sportType,
-                            hvalue.text.toString().toInt(),
-                            value.text.toString().toInt(),
-                            value2.text.toString().toInt(),
-                            reservDate,
-                            time,
-                            pricePerPerson.text.toString().toFloat(),
-                            wholePrice.text.toString().toFloat())
+            val year = findViewById<EditText>(R.id.yearBox).text.toString()
+            val month = findViewById<EditText>(R.id.monBox).text.toString()
+            val day = findViewById<EditText>(R.id.dayBox).text.toString()
+            val y = findViewById<EditText>(R.id.yearBox).text.toString().toInt()
+            val m = findViewById<EditText>(R.id.monBox).text.toString().toInt()
+            val d = findViewById<EditText>(R.id.dayBox).text.toString().toInt()
+            val startTime = findViewById<EditText>(R.id.time).text.toString()
+            val reserveDate = "$day/$month/$year"
+            if(day.isNotEmpty() && month.isNotEmpty() && year.isNotEmpty() && startTime.isNotEmpty() && hvalue.text.toString() != "0"){
+                if(capacity >= pvalue2.text.toString().toInt()){
+                    val checked= datevalidation(d, m, y)
+                    if (checked==1) {
+                        val Timearray = arrayListOf<Int>()
+                        for (i in stime..ftime) {
+                            Timearray.add(i)
+                        }
+                        var resercheck = checkReservations(fieldID,openingtime,hvalue.text.toString().toInt())
+                        if (resercheck == 1) {
+                            createGame(
+                                fieldID,
+                                ownerId,
+                                fieldName,
+                                sportType,
+                                hvalue.text.toString().toInt(),
+                                pvalue2.text.toString().toInt(),
+                                reserveDate,
+                                startTime,
+                                finishTime,
+                                pricePerPerson.text.toString().toFloat(),
+                                Timearray,
+                                publicity,
+                                value.text.toString().toInt(),
+                                tPrice
+                            )
+                        } else if (resercheck == 2){
+                            Toast.makeText(
+                                this,
+                                "Field opening time $openingtime",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }else if (resercheck == 0){
+                            Toast.makeText(
+                                this,
+                                "Already Reserved333",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }else{
+                            resercheck = checkReservations(fieldID,openingtime,hvalue.text.toString().toInt())
+                            if (resercheck == 1) {
+                                createGame(
+                                    fieldID,
+                                    ownerId,
+                                    fieldName,
+                                    sportType,
+                                    hvalue.text.toString().toInt(),
+                                    pvalue2.text.toString().toInt(),
+                                    reserveDate,
+                                    startTime,
+                                    finishTime,
+                                    pricePerPerson.text.toString().toFloat(),
+                                    Timearray,
+                                    publicity,
+                                    value.text.toString().toInt(),
+                                    tPrice
+                                )
+                            } else if (resercheck == 2){
+                                Toast.makeText(
+                                    this,
+                                    "Field opening time $openingtime",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }else if (resercheck == 0){
+                                Toast.makeText(
+                                    this,
+                                    "Already Reserved444",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                     }
-
+                    else {
+                        Toast.makeText(this, "Invalid Date", Toast.LENGTH_SHORT).show()
+                    }
+                }else {
+                    Toast.makeText(this, "Minimum number of players exceeds the capacity", Toast.LENGTH_SHORT).show()
                 }
-
-            }
-            else if (CurrentYear<year) {
-                createGame(
-                    fieldID,
-                    publicity,
-                    fieldName,
-                    sportType,
-                    hvalue.text.toString().toInt(),
-                    value.text.toString().toInt(),
-                    value2.text.toString().toInt(),
-                    reservDate,
-                    time,
-                    wholePrice.text.toString().toFloat()
-                )
+            }else {
+                Toast.makeText(this, "Please fill all the information", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
-    fun checkTime (fieldID:String ,reservDate:String, time:String):Boolean {
-        var flag : Boolean =true
-        val Reservations = FirebaseFirestore.getInstance()
-        Reservations.collection("Reservations").whereEqualTo("fieldID", fieldID)
-            .get().addOnCompleteListener {
-                if (it.isSuccessful) {
-                    Reservations.collection("Reservations").whereEqualTo("gameDate", reservDate)
-                        .get().addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                Reservations.collection("Reservations")
-                                    .whereEqualTo("gameTime", time)
-                                    .get().addOnSuccessListener {
-                                        flag = false
-                                    }.addOnFailureListener {
-                                        flag = true
-                                    }
-                            }
-
-                        }
+    private fun datevalidation(day:Int? = null,month:Int? = null,year:Int? = null):Int {
+        var timeflag = 0
+        val CurrentYear = Calendar.getInstance().get(Calendar.YEAR).toString().toInt()
+        val Currentmonth = Calendar.getInstance().get(Calendar.MONTH).toString().toInt() + 1
+        val Currentday = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString().toInt()
+        if (CurrentYear==year)
+        {
+            if(Currentmonth==month)
+            {
+                if (day != null) {
+                    if(Currentday <= day.toInt()) {
+                        timeflag = 1
+                    }
+                }
+            }
+            else if (month != null) {
+                if (Currentmonth < month.toInt()) {
+                    timeflag = 1
                 }
             }
 
-        return flag
+        }
+        else if (year != null) {
+            if (CurrentYear < year.toInt()) {
+                timeflag = 1
+            }
+            else{
+                timeflag = 0
+            }
+        }
+        return timeflag
     }
-
-    private fun createGame(fieldID:String? = null,publicity:String? = null,fieldName:String? = null,sportType:String? = null,hvalue : Int? = null,value : Int? = null, value2 : Int? = null, reservDate:String? = null, time:String? = null, pricePerPerson:Float? = null, wholePrice:Float? = null) {
+    var reservationflag: Int = -1
+    private fun checkReservations(fieldID:String,openingtime:String,nohours : Int):Int {
+        val year = findViewById<EditText>(R.id.yearBox).text.toString()
+        val month = findViewById<EditText>(R.id.monBox).text.toString()
+        val day = findViewById<EditText>(R.id.dayBox).text.toString()
+        val reserveDate = "$day/$month/$year"
+        ftime = stime + nohours
+        if(ftime > 24){
+            ftime = nohours
+        }
+        if (ftime < 12) {
+            finishTime = "$ftime AM"
+        } else {
+            finishTime = "$ftime PM"
+        }
+        val Timearray = arrayListOf<Int>()
+        for (i in stime..ftime) {
+            Timearray.add(i)
+        }
+        val Reservations = FirebaseFirestore.getInstance()
+                    Reservations.collection("Reservations").whereEqualTo("fieldID", fieldID).whereEqualTo("reservationDate", reserveDate).whereArrayContainsAny("timearray", Timearray)
+                        .get().addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                val r = it.result
+                                if (r != null) {
+                                    if (!(r.isEmpty)) {
+                                        reservationflag = 0
+                                    } else {
+                                        reservationflag = 1
+                                    }
+                                }
+                            }
+                        }
+        val op = openingtime.substringBefore("-")
+        var open = op.substringBefore(":")
+        open = open.replace(" ","")
+        val cs = openingtime.substringAfter("-")
+        var close = cs.substringBefore(":")
+        close = close.replace(" ","")
+        if(stime < (open.toInt())) {
+            reservationflag = 2
+        }
+        if(ftime < (open.toInt())) {
+            reservationflag = 2
+        }
+        if(stime >= (close.toInt()) ) {
+            reservationflag = 2
+        }
+        if(ftime>=(close.toInt())) {
+            reservationflag = 2
+        }
+        return reservationflag
+    }
+    private fun createGame(fieldID:String? = null,ownerId:String? = null,fieldName:String? = null,sportType:String? = null,nohours : Int,minNOPlayers : Int? = null,reserveDate:String? = null,startTime:String? = null,finishTime:String? = null, pricePerPerson:Float,Timearray:ArrayList<Int>,publicty:String? = null,myPlayers : Int,fieldprice:Float) {
+        var totalPrice :Float = 0F
+        if (publicty == "true") {
+            totalPrice = ((pricePerPerson * myPlayers) * nohours)
+        }
+        else if (publicty=="false")
+        {
+            totalPrice =  (fieldprice* nohours)
+        }
+        Toast.makeText(
+            this,
+            "$totalPrice",
+            Toast.LENGTH_SHORT
+        ).show()
         database = FirebaseDatabase.getInstance().getReference("Reservations")
         val game = Reservation(
+            null,
             fieldID,
+            ownerId,
             getCurrentUserID(),
-            publicity,
+            publicty,
             fieldName,
             sportType,
-            hvalue,
-            value,
-            value2,
-            reservDate,
-            time,
-            wholePrice
+            nohours,
+            myPlayers,
+            minNOPlayers,
+            reserveDate,
+            startTime,
+            finishTime,
+            Timearray,
+            pricePerPerson,
+            totalPrice
         )
         val UserFireData = FirebaseFirestore.getInstance()
-        UserFireData.collection("Reservations")
-            .document()
-            .set(
-                game,
-                SetOptions.merge()
-            ).addOnSuccessListener {
-
-            }.addOnFailureListener {
-                Toast.makeText(
-                    this,
-                    "Failed to save information",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-
+        val currnetdoc = UserFireData.collection("Reservations").document()
+        currnetdoc.set(
+            game,
+            SetOptions.merge()
+        ).addOnSuccessListener {
+            Toast.makeText(
+                this,
+                "Game created successfully",
+                Toast.LENGTH_SHORT
+            ).show()
+            currnetdoc.update("reservationID",currnetdoc.id)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }.addOnFailureListener {
+            Toast.makeText(
+                this,
+                "Failed to create game",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
-
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         calendar.set(year, month, dayOfMonth)
         displayFormattedDate(calendar.timeInMillis)
-        TimePickerDialog(
-            this,
-            this,
-            calendar.get(Calendar.HOUR_OF_DAY),
-            calendar.get(Calendar.MINUTE),
-            false
-        ).show()
-
     }
-    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        calendar.apply {
-            set(Calendar.HOUR_OF_DAY, hourOfDay)
-            set(Calendar.MINUTE, minute)
-        }
-        displayFormattedDate(calendar.timeInMillis)
-    }
-
     private fun displayFormattedDate(timestamp: Long) {
         findViewById<EditText>(R.id.dayBox).setText(Dformatter.format(timestamp))
         findViewById<EditText>(R.id.monBox).setText(Mformatter.format(timestamp))
         findViewById<EditText>(R.id.yearBox).setText(Yformatter.format(timestamp))
-        findViewById<EditText>(R.id.time).setText(formatter.format(timestamp))
         Log.i("Formatting", timestamp.toString())
     }
-
-
 }
-
-
-
-
-//        val test = findViewById<TextView>(R.id.test)
-//        test.setOnClickListener {
-//            Toast.makeText(this, "$game", Toast.LENGTH_SHORT).show()
-//
-//        }

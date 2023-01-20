@@ -84,6 +84,14 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
                     }
                 }
             }
+        findViewById<Button>(R.id.changePass).setOnClickListener {
+            val intent = Intent(this, ChangePassword::class.java)
+            startActivity(intent)
+        }
+        findViewById<Button>(R.id.cancelBtn).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         val Save = findViewById<Button>(R.id.saveBtn)
         Save.setOnClickListener {
             val radioGroup = findViewById<RadioGroup>(R.id.gender)
@@ -98,40 +106,41 @@ class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
             val newDOB =
                 Day.text.toString() + "/" + Month.text.toString() + "/" + Year.text.toString()
             val codephone = findViewById<EditText>(R.id.phoneBox).text.take(3).toString()
-            if (PN.length() == 10) {
-                if (codephone.equals("079") || codephone.equals("078") || codephone.equals("077")) {
-                    UserFireData.collection("users").document(getCurrentUserID())
-                .update(
-                    "firstName",
-                    FN.text.toString(),
-                    "lastName",
-                    LN.text.toString(),
-                    "phoneNumber",
-                    PN.text.toString(),
-                    "gender",
-                    gender,
-                    "dateOfBirth",
-                    newDOB
-                )
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }else {
-            Toast.makeText(this, "Incorrect Phone Number", Toast.LENGTH_SHORT)
-                .show()
-        }
-    } else {
-        Toast.makeText(this, "Incorrect Phone Number", Toast.LENGTH_SHORT).show()
-    }
-
-        val changePass = findViewById<Button>(R.id.changePass)
-        changePass.setOnClickListener {
-            val intent = Intent(this, ChangePassword::class.java)
-            startActivity(intent)
-        }
-        findViewById<Button>(R.id.cancelBtn).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+            val CurrentYear = Calendar.getInstance().get(Calendar.YEAR)
+            val nameRegex = Regex("^[a-zA-Z]{2,}$")
+            if (nameRegex.matches(FN.text.toString())&&nameRegex.matches(LN.text.toString())) {
+                if(Year.text.toString() < (CurrentYear-5).toString()) {
+                    if (PN.length() == 10) {
+                        if (codephone.equals("079") || codephone.equals("078") || codephone.equals("077")) {
+                            UserFireData.collection("users").document(getCurrentUserID())
+                                .update(
+                                    "firstName",
+                                    FN.text.toString(),
+                                    "lastName",
+                                    LN.text.toString(),
+                                    "phoneNumber",
+                                    PN.text.toString(),
+                                    "gender",
+                                    gender,
+                                    "dateOfBirth",
+                                    newDOB
+                                )
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Incorrect Phone Number", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    } else {
+                        Toast.makeText(this, "Incorrect Phone Number", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                    else{
+                        Toast.makeText(this, "Under the valid age", Toast.LENGTH_SHORT).show()
+                    }
+            }else{
+                Toast.makeText(this, "Invalid name format", Toast.LENGTH_SHORT).show()
+            }
     }
     }
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {

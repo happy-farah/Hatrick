@@ -61,8 +61,9 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val game : Reservation = gameList[position]
         holder.fieldName.text = game.fieldName
-        holder.time.text = game.gameTime
-        holder.date.text = game.gameDate
+        holder.stime.text = game.startTime
+        holder.ftime.text = game.finishTime
+        holder.date.text = game.reservationDate
         holder.pricePP.text = game.pricePerPerson.toString()
         holder.noPlayers.text = game.noplayers.toString()
         val fieldId = game.fieldID
@@ -79,11 +80,10 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         val fieldName: TextView = itemView.findViewById(R.id.FieldName)
         val noPlayers : TextView = itemView.findViewById(R.id.numberOfplayers)
         val date : TextView = itemView.findViewById(R.id.date)
-        val time : TextView = itemView.findViewById(R.id.time)
+        val stime : TextView = itemView.findViewById(R.id.sTime)
+        val ftime : TextView = itemView.findViewById(R.id.fTime)
         val pricePP : TextView = itemView.findViewById(R.id.pricePP)
         val viewField : Button = itemView.findViewById(R.id.viewField)
 
-
     }
 }
-

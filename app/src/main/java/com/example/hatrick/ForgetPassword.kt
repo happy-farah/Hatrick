@@ -15,7 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class ForgetPassword : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

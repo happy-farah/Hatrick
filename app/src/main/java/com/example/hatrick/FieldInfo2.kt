@@ -21,6 +21,8 @@ class FieldInfo2 : AppCompatActivity() {
         val FieldIntent = intent
         val FieldData = FirebaseFirestore.getInstance()
         val fieldId = FieldIntent.getStringExtra("fieldID")
+        this@FieldInfo2.title = FieldIntent.getStringExtra("fieldName").toString()
+
         FieldData.collection("Fields").whereEqualTo("fieldID",fieldId).get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     for (doc in it.result!!) {

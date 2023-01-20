@@ -131,6 +131,7 @@
                 android:layout_marginTop="-35dp"
                 android:layout_marginLeft="130dp"/>
 
+
             <TextView
                 android:id="@+id/Hnumber"
                 android:layout_width="150dp"
@@ -156,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    android:text="0"
+                    android:text="1"
                     android:layout_marginLeft="20dp" />
                 <Button
                     android:id="@+id/plusBtn"
@@ -167,19 +168,14 @@
                     android:layout_marginLeft="20dp"
                     />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/warning"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/checktime"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Time already reserved"
-                android:textColor="@color/red"
-                android:visibility="invisible"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="10dp"
-                />
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="Check time" />
+
 
             <LinearLayout
                 android:id="@+id/forPublic"
@@ -207,7 +203,7 @@
                     android:layout_marginTop="-60dp">
 
                     <Button
-                        android:id="@+id/minusBtn1"
+                        android:id="@+id/minusBtnmy"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:text="-"
@@ -216,21 +212,21 @@
                         />
 
                     <TextView
-                        android:id="@+id/value1"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/valuemy"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:text="0"
+                        android:text="1"
                         android:textSize="25sp"
                         android:textStyle="bold"
 
                         />
 
                     <Button
-                        android:id="@+id/plusBtn1"
+                        android:id="@+id/plusBtnmy"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:text="+"
                         android:textSize="25sp"
 
@@ -255,7 +251,7 @@
                     android:layout_marginTop="-60dp">
 
                     <Button
-                        android:id="@+id/minusBtn2"
+                        android:id="@+id/minusBtnmin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:text="-"
@@ -264,21 +260,21 @@
                         />
 
                     <TextView
-                        android:id="@+id/value2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/valuemin"
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:text="0"
+                        android:text="1"
                         android:textSize="25sp"
                         android:textStyle="bold"
 
                         />
 
                     <Button
-                        android:id="@+id/plusBtn2"
+                        android:id="@+id/plusBtnmin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:text="+"
                         android:textSize="25sp"
 
@@ -317,12 +313,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="80dp">
+                >
                 <TextView
                     android:id="@+id/rPriceTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="Reservation price"
                     android:textSize="18sp" />
                 <TextView

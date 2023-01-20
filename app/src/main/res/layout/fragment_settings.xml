@@ -10,25 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Help"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
-
         <TextView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Logout"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+            android:id="@+id/signout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Sign Out"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 </FrameLayout>

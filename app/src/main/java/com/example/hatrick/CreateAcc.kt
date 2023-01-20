@@ -182,11 +182,13 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val password =binding.passwordbox.text.toString()
             val confPass =binding.confpasswordbox.text.toString()
             val DOB = DDOB +"/"+ MDOB +"/"+ YDOB
-
             val codephone = binding.phoneBox.text.take(3).toString()
             val CurrentYear = Calendar.getInstance().get(Calendar.YEAR)
-
+            val nameRegex = Regex("^[a-zA-Z]{2,}$")
+            val emailRegex = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$")
             if (fname.isNotEmpty() && lname.isNotEmpty() && DDOB.isNotEmpty() && MDOB.isNotEmpty() && YDOB.isNotEmpty() && gender.isChecked && phone.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confPass.isNotEmpty()) {
+                if (nameRegex.matches(fname)&&nameRegex.matches(lname)) {
+                    if (emailRegex.matches(email)) {
                 if(YDOB < (CurrentYear-5).toString()) {
                     if (phone.length == 10) {
                         if (codephone.equals("079") || codephone.equals("078") || codephone.equals("077")) {
@@ -261,6 +263,12 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                 }else{
                     Toast.makeText(this, "You are under the valid age", Toast.LENGTH_SHORT).show()
                 }
+                    } else{
+                            Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        Toast.makeText(this, "Invalid name format", Toast.LENGTH_SHORT).show()
+                    }
             }else {
                 Toast.makeText(this, "Please fill all the information", Toast.LENGTH_SHORT).show()
             }

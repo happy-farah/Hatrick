@@ -38,14 +38,14 @@
                 android:scaleType="centerCrop"
                 android:layout_marginTop="0dp"
                 />
-            <ImageView
-                android:id="@+id/checkIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="250dp"
-                android:layout_marginTop="-140dp"
-                android:layout_marginBottom="100dp"
-                app:srcCompat="@drawable/heart" />
+<!--            <ImageView-->
+<!--                android:id="@+id/heart"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginLeft="250dp"-->
+<!--                android:layout_marginTop="-140dp"-->
+<!--                android:layout_marginBottom="100dp"-->
+<!--                app:srcCompat="@drawable/heart" />-->
 
             <TextView
                 android:id="@+id/FieldName"
@@ -63,28 +63,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="5dp"
                 android:text="Location"
                 android:textColor="@color/textGray"
                 android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/fieldRateImg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="220dp"
-                android:layout_marginTop="-70dp"
-                app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+<!--            <ImageView-->
+<!--                android:id="@+id/fieldRateImg"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginStart="220dp"-->
+<!--                android:layout_marginTop="-70dp"-->
+<!--                app:srcCompat="@drawable/ic_baseline_star_rate_24" />-->
 
-            <TextView
-                android:id="@+id/fieldRateLab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="230dp"
-                android:layout_marginBottom="5dp"
-                android:text="Rate"
-                android:textColor="@color/myDarkGreen"
-                android:textSize="12sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/fieldRateLab"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="230dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:text="Rate"-->
+<!--                android:textColor="@color/myDarkGreen"-->
+<!--                android:textSize="12sp" />-->
 
         </LinearLayout>
 

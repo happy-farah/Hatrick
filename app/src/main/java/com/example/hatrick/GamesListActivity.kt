@@ -31,7 +31,7 @@ class GamesListActivity : AppCompatActivity() {
     private fun EventChangeListener(){
         db = FirebaseFirestore.getInstance()
         val card = intent.getStringExtra("card")
-        db.collection("Reservations").whereEqualTo("sportType",card)
+        db.collection("Reservations").whereEqualTo("sportType",card).whereEqualTo("public","true")
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                     if (error != null) {
