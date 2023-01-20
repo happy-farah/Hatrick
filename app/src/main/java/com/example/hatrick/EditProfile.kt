@@ -15,7 +15,7 @@ import java.util.*
 class EditProfile : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
     private lateinit var firebaseAuth: FirebaseAuth
     private val calendar = Calendar.getInstance()
-    private val Dformatter = SimpleDateFormat("d")
+    private val Dformatter = SimpleDateFormat("dd")
     private val Mformatter = SimpleDateFormat("MM")
     private val Yformatter = SimpleDateFormat("yyyy")
     @SuppressLint("MissingInflatedId", "ResourceType")

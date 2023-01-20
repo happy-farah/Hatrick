@@ -311,7 +311,7 @@
                 android:id="@+id/reservPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+
                 android:layout_marginTop="10dp"
                 >
                 <TextView
@@ -319,7 +319,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Reservation price"
-                    android:textSize="18sp" />
+                    android:layout_marginLeft="90dp"                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/priceR"
                     android:layout_width="wrap_content"
@@ -328,12 +328,20 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18sp" />
             </LinearLayout>
-
+            <Button
+                android:id="@+id/calcPriceBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="Calculate Price"
+                android:layout_gravity="center"/>
             <Button
                 android:id="@+id/createGameBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:text="create game"

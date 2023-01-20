@@ -26,7 +26,7 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private val calendar = Calendar.getInstance()
-    private val Dformatter = SimpleDateFormat("d")
+    private val Dformatter = SimpleDateFormat("dd")
     private val Mformatter = SimpleDateFormat("MM")
     private val Yformatter = SimpleDateFormat("yyyy")
 

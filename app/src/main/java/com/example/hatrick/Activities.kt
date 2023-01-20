@@ -44,21 +44,17 @@ class Activities : Fragment() {
         val upComing = v.findViewById<CardView>(R.id.upComing)
         upComing.setOnClickListener {
             val intent = Intent(this@Activities.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("act","upcoming")
+
             startActivity(intent)
         }
         val history = v.findViewById<CardView>(R.id.history)
         history.setOnClickListener {
             val intent = Intent(this@Activities.requireContext(),GamesListActivity::class.java)
+            intent.putExtra("act","history")
+
             startActivity(intent)
         }
-//        val favorites = v.findViewById<CardView>(R.id.favorites)
-//        favorites.setOnClickListener {
-//            val intent = Intent(this@Activities.requireContext(),FieldListActivity::class.java)
-//            intent.putExtra("card","Football")
-//            startActivity(intent)
-//        }
-
-
         return v
     }
 

@@ -25,7 +25,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
     private var ftime = 0
     private lateinit var finishTime: String
     private lateinit var database: DatabaseReference
-    private val Dformatter = SimpleDateFormat("d")
+    private val Dformatter = SimpleDateFormat("dd")
     private val Mformatter = SimpleDateFormat("MM")
     private val Yformatter = SimpleDateFormat("yyyy")
     @SuppressLint("MissingInflatedId", "SetTextI18n")
@@ -174,7 +174,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
                 } else if (resercheck == 0){
                     Toast.makeText(
                         this,
-                        "Already Reserved111",
+                        "Already Reserved",
                         Toast.LENGTH_SHORT
                     ).show()
                 }else if (resercheck == 2){
@@ -194,7 +194,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
                     } else if (resercheck == 0){
                         Toast.makeText(
                             this,
-                            "Already Reserved222",
+                            "Already Reserved",
                             Toast.LENGTH_SHORT
                         ).show()
                     }else if (resercheck == 2){
@@ -234,6 +234,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
         })
 
         val checktym = findViewById<Button>(R.id.checktime)
+        val calcP = findViewById<Button>(R.id.calcPriceBtn)
 
         val createBtn = findViewById<Button>(R.id.createGameBtn)
         if (sportType == "Football") {
@@ -245,6 +246,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
             checktym.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
+            calcP.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
         }
         if (sportType == "Basketball") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
@@ -255,6 +257,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
             checktym.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
+            calcP.setBackgroundColor(android.graphics.Color.parseColor("#FF5207"))
         }
         if (sportType == "Tennis") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
@@ -265,6 +268,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
             checktym.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
+            calcP.setBackgroundColor(android.graphics.Color.parseColor("#AAEE00"))
         }
         if (sportType == "Handball") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
@@ -275,6 +279,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
             checktym.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
+            calcP.setBackgroundColor(android.graphics.Color.parseColor("#023e7d"))
         }
         if (sportType == "Badminton") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
@@ -285,6 +290,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
             checktym.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
+            calcP.setBackgroundColor(android.graphics.Color.parseColor("#ae2012"))
         }
         if (sportType == "Volleyball") {
             createBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
@@ -295,6 +301,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             hplusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             hminusBtn.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             checktym.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
+            calcP.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
         }
 
         val create = findViewById<Button>(R.id.createGameBtn)
@@ -312,7 +319,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
                     val checked= datevalidation(d, m, y)
                     if (checked==1) {
                         val Timearray = arrayListOf<Int>()
-                        for (i in stime..ftime) {
+                        for (i in stime..(ftime-1)) {
                             Timearray.add(i)
                         }
                         var resercheck = checkReservations(fieldID,openingtime,hvalue.text.toString().toInt())
@@ -342,7 +349,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
                         }else if (resercheck == 0){
                             Toast.makeText(
                                 this,
-                                "Already Reserved333",
+                                "Already Reserved",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }else{
@@ -373,7 +380,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
                             }else if (resercheck == 0){
                                 Toast.makeText(
                                     this,
-                                    "Already Reserved444",
+                                    "Already Reserved",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -388,6 +395,22 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             }else {
                 Toast.makeText(this, "Please fill all the information", Toast.LENGTH_SHORT).show()
             }
+        }
+        val calcp =findViewById<Button>(R.id.calcPriceBtn)
+        calcp.setOnClickListener {
+            var TP :Float = 0F
+            if (publicity == "true") {
+                TP = (((pricePerPerson.text.toString().toFloat()) * (value.text.toString().toInt())) * (hvalue.text.toString().toInt()))
+            }
+            else if (publicity=="false")
+            {
+                TP =  (tPrice * (hvalue.text.toString().toInt()))
+            }
+            Toast.makeText(
+                this,
+                "The total price is $TP JOD",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
     private fun datevalidation(day:Int? = null,month:Int? = null,year:Int? = null):Int {
@@ -423,7 +446,8 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
         return timeflag
     }
     var reservationflag: Int = -1
-    private fun checkReservations(fieldID:String,openingtime:String,nohours : Int):Int {
+    @SuppressLint("SuspiciousIndentation")
+    private fun checkReservations(fieldID:String, openingtime:String, nohours : Int):Int {
         val year = findViewById<EditText>(R.id.yearBox).text.toString()
         val month = findViewById<EditText>(R.id.monBox).text.toString()
         val day = findViewById<EditText>(R.id.dayBox).text.toString()
@@ -438,7 +462,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             finishTime = "$ftime PM"
         }
         val Timearray = arrayListOf<Int>()
-        for (i in stime..ftime) {
+        for (i in stime..(ftime-1)) {
             Timearray.add(i)
         }
         val Reservations = FirebaseFirestore.getInstance()
@@ -475,6 +499,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
         }
         return reservationflag
     }
+
     private fun createGame(fieldID:String? = null,ownerId:String? = null,fieldName:String? = null,sportType:String? = null,nohours : Int,minNOPlayers : Int? = null,reserveDate:String? = null,startTime:String? = null,finishTime:String? = null, pricePerPerson:Float,Timearray:ArrayList<Int>,publicty:String? = null,myPlayers : Int,fieldprice:Float) {
         var totalPrice :Float = 0F
         if (publicty == "true") {
@@ -484,11 +509,6 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
         {
             totalPrice =  (fieldprice* nohours)
         }
-        Toast.makeText(
-            this,
-            "$totalPrice",
-            Toast.LENGTH_SHORT
-        ).show()
         database = FirebaseDatabase.getInstance().getReference("Reservations")
         val game = Reservation(
             null,

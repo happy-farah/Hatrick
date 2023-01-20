@@ -41,29 +41,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="13dp"
-                        android:text="Upcoming Games"
+                        android:layout_marginTop="30dp"
+                        android:text="Upcoming"
                         android:textColor="@color/myDarkGreen"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/footballNOF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="15dp"
-                        android:text="number of games"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
-                        android:id="@+id/footballRulesImg"
+                        android:id="@+id/nextImg1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="250dp"
-                        android:layout_marginTop="-70dp"
+                        android:layout_marginTop="-35dp"
+                        android:layout_marginBottom="30dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/next" />
 
@@ -97,28 +88,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="13dp"
+                        android:layout_marginTop="30dp"
                         android:text="History"
                         android:textColor="@color/myDarkGreen"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/historyNOG"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="15dp"
-                        android:text="number of games"
-                        android:textColor="@color/textGray"
-                        android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="250dp"
-                        android:layout_marginTop="-70dp"
+                        android:layout_marginTop="-35dp"
+                        android:layout_marginBottom="30dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/next" />
 

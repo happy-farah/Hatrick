@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -16,13 +17,29 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 
-class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>, private val card: String) : RecyclerView.Adapter<GameAdapter.MyViewHolder>() {
+class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>, private val card: String, private val act: String) : RecyclerView.Adapter<GameAdapter.MyViewHolder>() {
     @SuppressLint("MissingInflatedId")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.game_item,
             parent,false)
         val viewField = itemView.findViewById<TextView>(R.id.viewField)
         val joinGame = itemView.findViewById<TextView>(R.id.joinGame)
+        val totalprice = itemView.findViewById<LinearLayout>(R.id.totalPrice)
+        if (act == "history")
+        {
+            viewField.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT)
+            joinGame.layoutParams = LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,0)
+            totalprice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
+
+
+        }
+        else if (act == "upcoming")
+        {
+            viewField.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT)
+            joinGame.layoutParams = LinearLayout.LayoutParams( LinearLayout.LayoutParams.WRAP_CONTENT,0)
+            totalprice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
+        }
+
         if (card=="Football")
         {
             viewField.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
@@ -66,11 +83,15 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         holder.date.text = game.reservationDate
         holder.pricePP.text = game.pricePerPerson.toString()
         holder.noPlayers.text = game.noplayers.toString()
+        holder.totPrice.text = game.totalPrice.toString()
         val fieldId = game.fieldID
         holder.viewField.setOnClickListener {
             val intent = Intent(c, FieldInfo2::class.java)
             intent.putExtra("fieldID", fieldId)
             c.startActivity(intent)
+        }
+        holder.joinGame.setOnClickListener {
+            holder.joinGame.setBackgroundColor(android.graphics.Color.parseColor("#a6a6a6"))
         }
     }
     override fun getItemCount(): Int {
@@ -83,7 +104,9 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         val stime : TextView = itemView.findViewById(R.id.sTime)
         val ftime : TextView = itemView.findViewById(R.id.fTime)
         val pricePP : TextView = itemView.findViewById(R.id.pricePP)
+        val totPrice : TextView = itemView.findViewById(R.id.fieldPrice)
         val viewField : Button = itemView.findViewById(R.id.viewField)
+        val joinGame :Button = itemView.findViewById(R.id.joinGame)
 
     }
 }
