@@ -226,7 +226,7 @@
                         android:id="@+id/plusBtnmy"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
                         android:text="+"
                         android:textSize="25sp"
 
@@ -274,7 +274,7 @@
                         android:id="@+id/plusBtnmin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
                         android:text="+"
                         android:textSize="25sp"
 
@@ -319,7 +319,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Reservation price"
-                    android:layout_marginLeft="90dp"                    android:textSize="18sp" />
+                    android:layout_marginLeft="80dp"                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/priceR"
                     android:layout_width="wrap_content"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Home"
+    tools:context=".Activities"
     android:layout_gravity="center">
 
         <LinearLayout
@@ -15,7 +15,7 @@
             android:layout_gravity="center_horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/upComing"
+                android:id="@+id/privateg"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
 
@@ -37,12 +37,12 @@
 
 
                     <TextView
-                        android:id="@+id/upComingTxt"
+                        android:id="@+id/privateTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="30dp"
-                        android:text="Upcoming"
+                        android:text="Private Games"
                         android:textColor="@color/myDarkGreen"
                         android:textSize="25sp"
                         android:textStyle="bold" />
@@ -63,7 +63,7 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
-                android:id="@+id/history"
+                android:id="@+id/publicg"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -81,15 +81,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
-
                     <TextView
-                        android:id="@+id/historyTxt"
+                        android:id="@+id/publicyTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="30dp"
-                        android:text="History"
+                        android:text="Public Games"
                         android:textColor="@color/myDarkGreen"
                         android:textSize="25sp"
                         android:textStyle="bold" />

@@ -48,6 +48,26 @@
                 android:textColor="@color/textGray"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/sporttypeTXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Sport Type"
+                android:textColor="@color/textGray"
+                android:textSize="18sp"
+                />
+            <TextView
+                android:id="@+id/SportType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="-28dp"
+                android:text="Sport Type"
+                android:textColor="@color/textGray"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
 
@@ -108,6 +128,10 @@
                 android:textColor="@color/textGray"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
+        <LinearLayout
+            android:id="@+id/PPP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/pricePerP"
                 android:layout_width="wrap_content"
@@ -121,12 +145,13 @@
                 android:id="@+id/pricePP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="220dp"
-                android:layout_marginTop="-25dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
                 android:text="price"
                 android:textColor="@color/textGray"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
+        </LinearLayout>
             <LinearLayout
                 android:id="@+id/totalPrice"
                 android:layout_width="wrap_content"
@@ -151,25 +176,30 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
             </LinearLayout>
-            <TextView
-                android:id="@+id/numberOfplayersTxt"
+            <LinearLayout
+                android:id="@+id/NOP"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:text="Number of players"
-                android:textColor="@color/textGray"
-                android:textSize="18sp" />
-            <TextView
-                android:id="@+id/numberOfplayers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="190dp"
-                android:layout_marginTop="-25dp"
-                android:text="num"
-                android:textColor="@color/textGray"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/numberOfplayersTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Number of players"
+                    android:textColor="@color/textGray"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/numberOfplayers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:text="num"
+                    android:textColor="@color/textGray"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
             <Button
                 android:id="@+id/viewField"
                 android:layout_width="wrap_content"

@@ -17,12 +17,12 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
-class GamesListActivity : AppCompatActivity() {
+class ParticipantListActivity : AppCompatActivity() {
 
     private lateinit var db : FirebaseFirestore
     private lateinit var recyclerview : RecyclerView
-    private lateinit var gameArrayList : ArrayList<Reservation>
-    private lateinit var gameAdapter: GameAdapter
+    private lateinit var gameArrayList : ArrayList<Participant>
+    private lateinit var gameAdapter: ParticipantAdapter
     var Currentday = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
     var Currentmonth = (Calendar.getInstance().get(Calendar.MONTH).toString().toInt()+1).toString()
     val Currentyear = Calendar.getInstance().get(Calendar.YEAR).toString()
@@ -36,10 +36,7 @@ class GamesListActivity : AppCompatActivity() {
 
         var card :String = ""
         val act = intent.getStringExtra("act").toString()
-        if (act == "all") {
-            card = intent.getStringExtra("card").toString()
-        }
-        else if (act == "history")
+        if (act == "history")
         {
             card = "Football"
         }
@@ -48,7 +45,7 @@ class GamesListActivity : AppCompatActivity() {
             card = "Football"
         }
         gameArrayList = arrayListOf()
-        gameAdapter = GameAdapter(this,gameArrayList, card , act)
+        gameAdapter = ParticipantAdapter(this,gameArrayList, card , act)
         recyclerview.adapter = gameAdapter
         EventChangeListener()
 
@@ -64,30 +61,9 @@ class GamesListActivity : AppCompatActivity() {
             Currentmonth="0"+Currentmonth
         }
         val currentdate = "$Currentday/$Currentmonth/$Currentyear"
-        if (act == "all") {
-            db.collection("Reservations").whereEqualTo("sportType", card)
-                .whereEqualTo("public", "true").whereGreaterThanOrEqualTo("reservationDate",currentdate)
-                .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                    override fun onEvent(
-                        value: QuerySnapshot?,
-                        error: FirebaseFirestoreException?
-                    ) {
-                        if (error != null) {
-                            Log.e("Firestore Error", error.message.toString())
-                            return
-                        }
-                        for (dc: DocumentChange in value?.documentChanges!!) {
-                            if (dc.type == DocumentChange.Type.ADDED) {
-                                gameArrayList.add(dc.document.toObject(Reservation::class.java))
-                            }
-                        }
-                        gameAdapter.notifyDataSetChanged()
-                    }
-                })
-        }
-        else if (act == "history")
+        if (act == "history")
         {
-            db.collection("Reservations").whereEqualTo("userID", getCurrentUserID()).whereEqualTo("public", "false").whereLessThan("reservationDate",currentdate)
+            db.collection("Participant").whereEqualTo("userID", getCurrentUserID()).whereEqualTo("public", "true").whereLessThan("reservationDate",currentdate)
                 .addSnapshotListener(object : EventListener<QuerySnapshot> {
                     override fun onEvent(
                         value: QuerySnapshot?,
@@ -99,7 +75,7 @@ class GamesListActivity : AppCompatActivity() {
                         }
                         for (dc: DocumentChange in value?.documentChanges!!) {
                             if (dc.type == DocumentChange.Type.ADDED) {
-                                gameArrayList.add(dc.document.toObject(Reservation::class.java))
+                                gameArrayList.add(dc.document.toObject(Participant::class.java))
                             }
                         }
                         gameAdapter.notifyDataSetChanged()
@@ -108,7 +84,7 @@ class GamesListActivity : AppCompatActivity() {
         }
         else if (act == "upcoming")
         {
-            db.collection("Reservations").whereEqualTo("userID", getCurrentUserID()).whereEqualTo("public", "false").whereGreaterThanOrEqualTo("reservationDate",currentdate)
+            db.collection("Participant").whereEqualTo("userID", getCurrentUserID()).whereEqualTo("public", "true").whereGreaterThanOrEqualTo("reservationDate",currentdate)
                 .addSnapshotListener(object : EventListener<QuerySnapshot> {
                     override fun onEvent(
                         value: QuerySnapshot?,
@@ -120,7 +96,7 @@ class GamesListActivity : AppCompatActivity() {
                         }
                         for (dc: DocumentChange in value?.documentChanges!!) {
                             if (dc.type == DocumentChange.Type.ADDED) {
-                                gameArrayList.add(dc.document.toObject(Reservation::class.java))
+                                gameArrayList.add(dc.document.toObject(Participant::class.java))
                             }
                         }
                         gameAdapter.notifyDataSetChanged()

@@ -41,18 +41,16 @@ class Activities : Fragment() {
     ): View? {
         val v : View =inflater.inflate(R.layout.fragment_activities, container, false)
 
-        val upComing = v.findViewById<CardView>(R.id.upComing)
+        val upComing = v.findViewById<CardView>(R.id.privateg)
         upComing.setOnClickListener {
-            val intent = Intent(this@Activities.requireContext(),GamesListActivity::class.java)
-            intent.putExtra("act","upcoming")
-
+            val intent = Intent(this@Activities.requireContext(),historyorupcoming::class.java)
+            intent.putExtra("type","private")
             startActivity(intent)
         }
-        val history = v.findViewById<CardView>(R.id.history)
+        val history = v.findViewById<CardView>(R.id.publicg)
         history.setOnClickListener {
-            val intent = Intent(this@Activities.requireContext(),GamesListActivity::class.java)
-            intent.putExtra("act","history")
-
+            val intent = Intent(this@Activities.requireContext(),historyorupcoming::class.java)
+            intent.putExtra("type","public")
             startActivity(intent)
         }
         return v

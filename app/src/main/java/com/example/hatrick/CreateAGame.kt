@@ -138,12 +138,13 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
             }
         }
 
-        var minNOPlayers = myPlayers
+        var minNOPlayers = 0
+        minNOPlayers = myPlayers + minNOPlayers
 
         val hplusBtn2 = findViewById<TextView>(R.id.plusBtnmin)
         val hminusBtn2 = findViewById<TextView>(R.id.minusBtnmin)
         pvalue2.text = minNOPlayers.toString()
-        minNOPlayers = myPlayers
+        minNOPlayers = myPlayers + minNOPlayers
         hplusBtn2.setOnClickListener {
             if (minNOPlayers < capacity )
             {
@@ -494,7 +495,7 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
         if(stime >= (close.toInt()) ) {
             reservationflag = 2
         }
-        if(ftime>=(close.toInt())) {
+        if(ftime>(close.toInt())) {
             reservationflag = 2
         }
         return reservationflag
@@ -540,6 +541,15 @@ class CreateAGame : AppCompatActivity() , DatePickerDialog.OnDateSetListener {
                 Toast.LENGTH_SHORT
             ).show()
             currnetdoc.update("reservationID",currnetdoc.id)
+            if(publicty == "true"){
+            val participation = Participant(currnetdoc.id, getCurrentUserID(), totalPrice,
+                "true", fieldName,sportType, myPlayers, reserveDate,
+                startTime, finishTime)
+            val currnetdoc2 = UserFireData.collection("Participant").document()
+            currnetdoc2.set(
+                participation,
+                SetOptions.merge()
+            )}
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }.addOnFailureListener {
