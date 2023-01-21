@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi
 
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 
 class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>, private val card: String, private val act: String) : RecyclerView.Adapter<GameAdapter.MyViewHolder>() {
     @SuppressLint("MissingInflatedId")
@@ -85,6 +86,12 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         holder.noPlayers.text = game.noplayers.toString()
         holder.totPrice.text = game.totalPrice.toString()
         val fieldId = game.fieldID
+        val resId = game.reservationID
+        val price = game.pricePerPerson.toString().toFloat()
+        val hours  = game.nohours.toString().toInt()
+        val tot = price*hours
+        val newTotPrice = ((game.totalPrice)?.plus(tot))
+        val newNoPlayers = game.noplayers?.plus(1)
         holder.viewField.setOnClickListener {
             val intent = Intent(c, FieldInfo2::class.java)
             intent.putExtra("fieldID", fieldId)
@@ -92,6 +99,20 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         }
         holder.joinGame.setOnClickListener {
             holder.joinGame.setBackgroundColor(android.graphics.Color.parseColor("#a6a6a6"))
+            val participation = Participant(resId, getCurrentUserID(), tot)
+            val UserFireData = FirebaseFirestore.getInstance()
+            val currnetdoc = UserFireData.collection("Participant").document()
+            currnetdoc.set(
+                participation,
+                SetOptions.merge()
+            ).addOnSuccessListener {
+                UserFireData.collection("Reservations").document("$resId").update(
+                    "noplayers",newNoPlayers,"totalPrice",newTotPrice)
+                holder.noPlayers.text = game.noplayers.toString()
+
+            }.addOnFailureListener {
+
+            }
         }
     }
     override fun getItemCount(): Int {
