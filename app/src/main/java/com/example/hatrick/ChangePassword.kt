@@ -81,7 +81,7 @@ class ChangePassword : AppCompatActivity() {
                 }
             }
         })
-        findViewById<Button>(R.id.saveBtn).setOnClickListener {
+        findViewById<Button>(R.id.changePass).setOnClickListener {
             changePassword()
         }
         findViewById<TextView>(R.id.cancelBtn).setOnClickListener{
