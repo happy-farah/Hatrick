@@ -63,7 +63,7 @@ class GamesListActivity : AppCompatActivity() {
         val currentdate = "$Currentday/$Currentmonth/$Currentyear"
         if (act == "all") {
             db.collection("Reservations").whereEqualTo("sportType", card)
-                .whereEqualTo("public", "true").whereGreaterThanOrEqualTo("reservationDate",currentdate)
+                .whereEqualTo("public", "true")
                 .addSnapshotListener(object : EventListener<QuerySnapshot> {
                     override fun onEvent(
                         value: QuerySnapshot?,
