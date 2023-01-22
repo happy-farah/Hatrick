@@ -21,7 +21,6 @@ import java.util.*
 
 
 class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
-
     private lateinit var binding: ActivityCreateAccBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
@@ -29,7 +28,6 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private val Dformatter = SimpleDateFormat("dd")
     private val Mformatter = SimpleDateFormat("MM")
     private val Yformatter = SimpleDateFormat("yyyy")
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -152,14 +150,12 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             }
         })
 
-
         val signInLink = findViewById<TextView>(R.id.signIn)
 
         signInLink.setOnClickListener {
             val intent = Intent(this , Signin::class.java)
             startActivity(intent)
         }
-
 
         binding.SignupBtn.setOnClickListener {
             val fname =binding.firstNameBox.text.toString()
@@ -311,7 +307,6 @@ class CreateAcc : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         }
     }
 }
-
 fun getCurrentUserID(): String {
     val currentUser = FirebaseAuth.getInstance().currentUser
     var currentUserID = ""

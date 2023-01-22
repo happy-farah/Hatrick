@@ -73,9 +73,7 @@ class ParticipantAdapter(var c: Context, private val gameList : ArrayList<Partic
             viewField.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             joinGame.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
         }
-
         return MyViewHolder(itemView)
-
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

@@ -62,7 +62,6 @@ class Signin : AppCompatActivity() {
             }
         }
         val createAcc = findViewById<TextView>(R.id.CreateAcc)
-
         createAcc.setOnClickListener {
             val intent = Intent(this, CreateAcc::class.java)
             startActivity(intent)

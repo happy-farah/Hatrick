@@ -33,7 +33,6 @@ class ParticipantListActivity : AppCompatActivity() {
         recyclerview = findViewById(R.id.gameList)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.setHasFixedSize(true)
-
         var card :String = ""
         val act = intent.getStringExtra("act").toString()
         if (act == "history")
@@ -48,7 +47,6 @@ class ParticipantListActivity : AppCompatActivity() {
         gameAdapter = ParticipantAdapter(this,gameArrayList, card , act)
         recyclerview.adapter = gameAdapter
         EventChangeListener()
-
     }
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()

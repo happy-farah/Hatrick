@@ -6,17 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Home">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/footballCard"
                 android:layout_width="300dp"
@@ -27,12 +24,10 @@
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp"
                 android:layout_gravity="center">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
                     <ImageView
                         android:id="@+id/footballImage"
                         android:layout_width="match_parent"
@@ -40,7 +35,6 @@
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/football_img" />
-
                     <TextView
                         android:id="@+id/footballLab"
                         android:layout_width="wrap_content"
@@ -52,9 +46,6 @@
                         android:textColor="@color/myDarkGreen"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
-
-
                     <ImageView
                         android:id="@+id/footballRulesImg"
                         android:layout_width="50dp"
@@ -63,7 +54,6 @@
                         android:layout_marginTop="-70dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/football_rules" />
-
                     <TextView
                         android:id="@+id/footballRulesLab"
                         android:layout_width="wrap_content"
@@ -73,11 +63,8 @@
                         android:text="Game Rules"
                         android:textColor="@color/myDarkGreen"
                         android:textSize="10sp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/basketballCard"
                 android:layout_width="300dp"
@@ -87,14 +74,11 @@
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/orange"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="20dp"
-                >
-
+                app:cardElevation="20dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
                     <ImageView
                         android:id="@+id/basketballImage"
                         android:layout_width="match_parent"
@@ -102,7 +86,6 @@
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/basketball_img" />
-
                     <TextView
                         android:id="@+id/basketballLab"
                         android:layout_width="wrap_content"
@@ -114,8 +97,6 @@
                         android:textColor="@color/orange"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
-
                     <ImageView
                         android:id="@+id/basketballRulesImg"
                         android:layout_width="50dp"
@@ -124,7 +105,6 @@
                         android:layout_marginTop="-75dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/basketball_rules" />
-
                     <TextView
                         android:id="@+id/basketballRulesLab"
                         android:layout_width="wrap_content"
@@ -134,11 +114,8 @@
                         android:text="Game Rules"
                         android:textColor="@color/orange"
                         android:textSize="10sp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/tennisCard"
                 android:layout_width="300dp"
@@ -148,14 +125,11 @@
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/tennisColor"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="20dp"
-                >
-
+                app:cardElevation="20dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
                     <ImageView
                         android:id="@+id/tennisImage"
                         android:layout_width="match_parent"
@@ -163,7 +137,6 @@
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/tennis_img" />
-
                     <TextView
                         android:id="@+id/tennisLab"
                         android:layout_width="wrap_content"
@@ -174,8 +147,6 @@
                         android:textColor="@color/tennisColor"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
-
                     <ImageView
                         android:id="@+id/tennisRulesImg"
                         android:layout_width="50dp"
@@ -184,7 +155,6 @@
                         android:layout_marginTop="-75dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/tennis_rules" />
-
                     <TextView
                         android:id="@+id/tennisRulesLab"
                         android:layout_width="wrap_content"
@@ -194,11 +164,8 @@
                         android:text="Game Rules"
                         android:textColor="@color/tennisColor"
                         android:textSize="10sp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/handballCard"
                 android:layout_width="300dp"
@@ -208,14 +175,11 @@
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/dark_navy"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="20dp"
-                >
-
+                app:cardElevation="20dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
                     <ImageView
                         android:id="@+id/handballImage"
                         android:layout_width="match_parent"
@@ -223,7 +187,6 @@
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/handball_img" />
-
                     <TextView
                         android:id="@+id/handballLab"
                         android:layout_width="wrap_content"
@@ -234,8 +197,6 @@
                         android:textColor="@color/dark_navy"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
-
                     <ImageView
                         android:id="@+id/handballRulesImg"
                         android:layout_width="50dp"
@@ -244,7 +205,6 @@
                         android:layout_marginTop="-70dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/handball_rules" />
-
                     <TextView
                         android:id="@+id/handballRulesLab"
                         android:layout_width="wrap_content"
@@ -254,11 +214,8 @@
                         android:text="Game Rules"
                         android:textColor="@color/dark_navy"
                         android:textSize="10sp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/badmintonCard"
                 android:layout_width="300dp"
@@ -268,14 +225,11 @@
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/brown"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="20dp"
-                >
-
+                app:cardElevation="20dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
                     <ImageView
                         android:id="@+id/badmintonImage"
                         android:layout_width="match_parent"
@@ -283,7 +237,6 @@
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/badminton_img" />
-
                     <TextView
                         android:id="@+id/badmintonLab"
                         android:layout_width="wrap_content"
@@ -294,7 +247,6 @@
                         android:textColor="@color/brown"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
                     <ImageView
                         android:id="@+id/badmintonRulesImg"
                         android:layout_width="50dp"
@@ -303,7 +255,6 @@
                         android:layout_marginTop="-70dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/badminnton_rules" />
-
                     <TextView
                         android:id="@+id/badmintonRulesLab"
                         android:layout_width="wrap_content"
@@ -313,11 +264,8 @@
                         android:text="Game Rules"
                         android:textColor="@color/brown"
                         android:textSize="10sp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/volleyballCard"
                 android:layout_width="300dp"
@@ -327,14 +275,11 @@
                 android:layout_marginBottom="10dp"
                 android:outlineSpotShadowColor="@color/blue"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="20dp"
-                >
-
+                app:cardElevation="20dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
                     <ImageView
                         android:id="@+id/volleyballImage"
                         android:layout_width="match_parent"
@@ -342,7 +287,6 @@
                         android:contentDescription="@string/todo1"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/volleyball_img" />
-
                     <TextView
                         android:id="@+id/volleyballLab"
                         android:layout_width="wrap_content"
@@ -353,8 +297,6 @@
                         android:textColor="@color/blue"
                         android:textSize="30sp"
                         android:textStyle="bold" />
-
-
                     <ImageView
                         android:id="@+id/volleyballRulesImg"
                         android:layout_width="50dp"
@@ -363,7 +305,6 @@
                         android:layout_marginTop="-70dp"
                         android:contentDescription="@string/todo"
                         app:srcCompat="@drawable/volleyball_rules" />
-
                     <TextView
                         android:id="@+id/volleyballRulesLab"
                         android:layout_width="wrap_content"
@@ -373,12 +314,8 @@
                         android:text="Game Rules"
                         android:textColor="@color/blue"
                         android:textSize="10sp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
     </ScrollView>
-
 </FrameLayout>

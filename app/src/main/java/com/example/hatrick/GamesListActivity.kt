@@ -18,7 +18,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class GamesListActivity : AppCompatActivity() {
-
     private lateinit var db : FirebaseFirestore
     private lateinit var recyclerview : RecyclerView
     private lateinit var gameArrayList : ArrayList<Reservation>
@@ -33,7 +32,6 @@ class GamesListActivity : AppCompatActivity() {
         recyclerview = findViewById(R.id.gameList)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.setHasFixedSize(true)
-
         var card :String = ""
         val act = intent.getStringExtra("act").toString()
         if (act == "all") {
@@ -51,7 +49,6 @@ class GamesListActivity : AppCompatActivity() {
         gameAdapter = GameAdapter(this,gameArrayList, card , act)
         recyclerview.adapter = gameAdapter
         EventChangeListener()
-
     }
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()

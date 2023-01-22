@@ -31,7 +31,6 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         val ppp = itemView.findViewById<LinearLayout>(R.id.PPP)
         val nop = itemView.findViewById<LinearLayout>(R.id.NOP)
 
-
         if (act == "history")
         {
             viewField.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -39,7 +38,6 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
             totalprice.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
             ppp.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,0)
             nop.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,0)
-
         }
         else if (act == "upcoming")
         {
@@ -49,7 +47,6 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
             ppp.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,0)
             nop.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,0)
         }
-
         if (card=="Football")
         {
             viewField.setBackgroundColor(android.graphics.Color.parseColor("#009900"))
@@ -80,11 +77,8 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
             viewField.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
             joinGame.setBackgroundColor(android.graphics.Color.parseColor("#4361ee"))
         }
-
         return MyViewHolder(itemView)
-
     }
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val game : Reservation = gameList[position]
         holder.fieldName.text = game.fieldName
@@ -134,7 +128,6 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
                 holder.noPlayers.text = game.noplayers.toString()
 
             }.addOnFailureListener {
-               // Toast.makeText(this@GameAdapter,"Show your text here",Toast.LENGTH_SHORT).show();
             }
         }else {
                 val context = holder.itemView.context
@@ -156,6 +149,5 @@ class GameAdapter(var c: Context, private val gameList : ArrayList<Reservation>,
         val viewField : Button = itemView.findViewById(R.id.viewField)
         val joinGame :Button = itemView.findViewById(R.id.joinGame)
         val sporttype:TextView = itemView.findViewById(R.id.SportType)
-
     }
 }

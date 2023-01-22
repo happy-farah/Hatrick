@@ -6,18 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".CreateAcc"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    >
-
+    android:layout_gravity="center">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-
-        >
-
-
+        android:layout_gravity="center_horizontal">
         <TextView
             android:id="@+id/nameLab"
             android:layout_width="match_parent"
@@ -28,13 +22,11 @@
             android:textColor="@color/myDarkGreen"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        >
+        android:layout_gravity="center">
         <EditText
             android:id="@+id/firstNameBox"
             android:layout_width="152dp"
@@ -50,13 +42,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameLab"
             app:layout_constraintVertical_bias="0.012" />
-
         <EditText
             android:id="@+id/lastNameBox"
             android:layout_width="152dp"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-
             android:ems="10"
             android:hint="Last Name"
             android:inputType="textPersonName"
@@ -91,9 +81,7 @@
             android:hint="DD"
             android:inputType="number"
             android:textColor="@color/textGray"
-            android:layout_marginLeft="0dp"
-            />
-
+            android:layout_marginLeft="0dp" />
         <TextView
             android:id="@+id/dash1"
             android:layout_width="13dp"
@@ -101,9 +89,7 @@
             android:text="/"
             android:textSize="34sp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-             />
-
+            android:layout_marginTop="10dp" />
         <EditText
             android:id="@+id/monBox"
             android:layout_width="66dp"
@@ -112,9 +98,7 @@
             android:hint="MM"
             android:inputType="number"
             android:textColor="@color/textGray"
-            android:layout_marginLeft="20dp"
-             />
-
+            android:layout_marginLeft="20dp" />
         <TextView
             android:id="@+id/dash2"
             android:layout_width="13dp"
@@ -122,9 +106,7 @@
             android:text="/"
             android:textSize="34sp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-             />
-
+            android:layout_marginTop="10dp" />
         <EditText
             android:id="@+id/yearBox"
             android:layout_width="80dp"
@@ -133,8 +115,7 @@
             android:hint="YYYY"
             android:inputType="number"
             android:textColor="@color/textGray"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_marginLeft="20dp" />
 </LinearLayout>
         <RadioGroup
             android:id="@+id/gender"
@@ -149,9 +130,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.518">
-
             <TextView
-
                 android:layout_width="114dp"
                 android:layout_height="wrap_content"
                 android:text="Gender"
@@ -164,24 +143,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.519" />
-
-
             <RadioButton
                 android:id="@+id/maleRadio"
                 android:layout_width="87dp"
                 android:layout_height="55dp"
                 android:text="Male"
                 android:textColor="@color/textGray" />
-
             <RadioButton
                 android:id="@+id/femaleRadio"
                 android:layout_width="105dp"
                 android:layout_height="55dp"
                 android:text="Female"
                 android:textColor="@color/textGray" />
-
         </RadioGroup>
-
         <TextView
             android:id="@+id/phoneLab"
             android:layout_width="match_parent"
@@ -193,8 +167,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center" />
-
-
         <EditText
             android:id="@+id/phoneBox"
             android:layout_width="310dp"
@@ -216,8 +188,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="0dp"
-            android:layout_gravity="center"
-             />
+            android:layout_gravity="center" />
         <TextView
             android:id="@+id/emailLab"
             android:layout_width="match_parent"
@@ -229,7 +200,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center" />
-
         <EditText
             android:id="@+id/emailBox"
             android:layout_width="310dp"
@@ -240,7 +210,6 @@
             android:textColor="@color/textGray"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center" />
-
         <TextView
             android:id="@+id/passwordLab"
             android:layout_width="match_parent"
@@ -261,7 +230,6 @@
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/white"
             app:passwordToggleEnabled="true">
-
         <EditText
             android:id="@+id/passwordbox"
             android:layout_width="270dp"
@@ -269,8 +237,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:textColor="@color/textGray"
-            android:layout_marginLeft="10dp"
-             />
+            android:layout_marginLeft="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
         <ImageView
             android:id="@+id/imageView"
@@ -300,13 +267,11 @@
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/white"
             app:passwordToggleEnabled="true">
-
         <EditText
             android:id="@+id/confpasswordbox"
             android:layout_width="270dp"
             android:layout_height="54dp"
             android:ems="10"
-
             android:inputType="textPassword"
             android:textColor="@color/textGray"
             android:layout_marginLeft="10dp"
@@ -323,7 +288,6 @@
             android:layout_height="25dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-
             app:srcCompat="@drawable/ic_precheck" />
     </LinearLayout>
         <ImageView
@@ -336,7 +300,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
             app:srcCompat="@drawable/ic_precheck" />
-
         <TextView
             android:id="@+id/tcheckIcon2"
             android:layout_width="300dp"
@@ -344,9 +307,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="-25dp"
             android:text="Password must be at least 8 characters"
-            android:textSize="14sp"
-            />
-
+            android:textSize="14sp" />
         <ImageView
             android:id="@+id/checkIcon3"
             android:layout_width="25dp"
@@ -438,8 +399,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_marginTop="40dp"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -448,8 +408,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:textColor="@color/textGray"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/signIn"
             android:layout_width="wrap_content"
@@ -460,7 +419,6 @@
             android:layout_marginTop="-22dp"
             android:layout_marginBottom="40dp"
             android:textColor="@color/myDarkGreen"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 </LinearLayout>
 </ScrollView>

@@ -15,7 +15,6 @@
             app:srcCompat="@drawable/sports"
             tools:ignore="InvalidId"
             android:layout_gravity="center"/>
-
         <TextView
             android:id="@+id/emailLab"
             android:layout_width="match_parent"
@@ -33,7 +32,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.315" />
-
         <EditText
             android:id="@+id/LoginEmail"
             android:layout_width="310dp"
@@ -72,9 +70,7 @@
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/white"
             app:passwordToggleEnabled="true"
-            android:layout_gravity="center"
-            >
-
+            android:layout_gravity="center">
         <EditText
             android:id="@+id/LoginPass"
             android:layout_width="310dp"
@@ -82,33 +78,8 @@
             android:ems="10"
             android:inputType="textPassword"
             android:textColor="@color/textGray"
-            android:layout_gravity="center"
-
-            />
+            android:layout_gravity="center" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <!--        <com.google.android.material.textfield.TextInputLayout-->
-        <!--            android:id="@+id/LoginPass"-->
-        <!--            android:layout_width="310dp"-->
-        <!--            android:layout_height="55dp"-->
-        <!--            android:layout_marginLeft="40dp"-->
-        <!--            android:layout_marginTop="0dp"-->
-        <!--            app:hintTextColor="@color/textGray"-->
-        <!--            app:boxBackgroundColor="@color/white"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:placeholderText="Type Your Password"-->
-        <!--            app:placeholderTextColor="@color/lightGray"-->
-        <!--            app:passwordToggleEnabled="true">-->
-
-        <!--            <com.google.android.material.textfield.TextInputEditText-->
-        <!--                android:id="@+id/PassEt"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:inputType="textPassword"-->
-        <!--                />-->
-        <!--        </com.google.android.material.textfield.TextInputLayout>-->
         <TextView
             android:id="@+id/forgetPass"
             android:layout_width="match_parent"
@@ -135,7 +106,6 @@
             android:textColor="@color/white"
             android:layout_marginTop="25dp"
             android:layout_gravity="center" />
-
         <TextView
             android:id="@+id/DontHavAcc"
             android:layout_width="wrap_content"
@@ -146,18 +116,14 @@
             android:textStyle="bold"
             android:layout_marginTop="15dp"
             android:layout_gravity="center" />
-
         <TextView
             android:id="@+id/CreateAcc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create Account"
-
             android:textColor="#009900"
             android:textSize="16sp"
             android:layout_marginTop="0dp"
             android:layout_gravity="center"            android:layout_marginBottom="50dp"
-            android:textStyle="bold"
-             />
-
+            android:textStyle="bold" />
 </LinearLayout>

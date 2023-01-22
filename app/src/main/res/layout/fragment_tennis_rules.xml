@@ -6,22 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/tennisColor">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/white"
-        android:layout_margin="7dp"
-        >
+        android:layout_margin="7dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/white"
-            android:layout_marginBottom="7dp"
-            >
+            android:layout_marginBottom="7dp">
             <TextView
                 android:id="@+id/BRtitle"
                 android:layout_width="match_parent"
@@ -45,8 +41,7 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
                 android:textAlignment="inherit"
-                android:layout_marginTop="30dp"
-                />
+                android:layout_marginTop="30dp" />
             <TextView
                 android:id="@+id/rule2"
                 android:layout_width="match_parent"
@@ -57,8 +52,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
-                android:textAlignment="inherit"
-                />
+                android:textAlignment="inherit" />
             <TextView
                 android:id="@+id/rule3"
                 android:layout_width="match_parent"
@@ -69,8 +63,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
-                android:textAlignment="inherit"
-                />
+                android:textAlignment="inherit" />
             <TextView
                 android:id="@+id/rule4"
                 android:layout_width="match_parent"
@@ -81,8 +74,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
-                android:textAlignment="inherit"
-                />
+                android:textAlignment="inherit" />
             <TextView
                 android:id="@+id/rule5"
                 android:layout_width="match_parent"
@@ -93,8 +85,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
-                android:textAlignment="inherit"
-                />
+                android:textAlignment="inherit" />
             <TextView
             android:id="@+id/rule6"
             android:layout_width="match_parent"
@@ -105,8 +96,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
-            android:textAlignment="inherit"
-            />
+            android:textAlignment="inherit" />
             <TextView
             android:id="@+id/rule7"
             android:layout_width="match_parent"
@@ -117,9 +107,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
-            android:textAlignment="inherit"
-            />
-
+            android:textAlignment="inherit" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

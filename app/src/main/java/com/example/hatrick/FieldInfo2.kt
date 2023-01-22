@@ -22,7 +22,6 @@ class FieldInfo2 : AppCompatActivity() {
         val FieldData = FirebaseFirestore.getInstance()
         val fieldId = FieldIntent.getStringExtra("fieldID")
         this@FieldInfo2.title = FieldIntent.getStringExtra("fieldName").toString()
-
         FieldData.collection("Fields").whereEqualTo("fieldID",fieldId).get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     for (doc in it.result!!) {
@@ -43,9 +42,7 @@ class FieldInfo2 : AppCompatActivity() {
                         findViewById<TextView>(R.id.groundType).setText(doc.data.getValue("groundType")as CharSequence?)
                         findViewById<TextView>(R.id.services).setText(doc.data.getValue("services")as CharSequence?)
                         findViewById<TextView>(R.id.openeingTime).setText(doc.data.getValue("openingTimes")as CharSequence?)
-
                         this@FieldInfo2.title = findViewById<TextView>(R.id.fieldNameTxt).text
-
                         val name= findViewById<TextView>(R.id.fieldNameTxt)
 
                         if (sporttype=="Football")

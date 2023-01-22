@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
     private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

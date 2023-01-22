@@ -36,7 +36,6 @@ class Home : Fragment() {
         }
     }
 
-
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

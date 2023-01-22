@@ -4,16 +4,13 @@
     <item android:title="Up-Coming"
         android:id="@+id/up_coming"
         android:icon="@drawable/ic_baseline_star_rate_24"
-        app:showAsAction="ifRoom|collapseActionView"
-        />
+        app:showAsAction="ifRoom|collapseActionView" />
     <item android:title="History"
         android:id="@+id/history"
         android:icon="@drawable/ic_baseline_event_available_24"
-        app:showAsAction="ifRoom|collapseActionView"
-        />
+        app:showAsAction="ifRoom|collapseActionView" />
     <item android:title="Favorites"
         android:id="@+id/favorites"
         android:icon="@drawable/ic_baseline_access_time_24"
-        app:showAsAction="ifRoom|collapseActionView"
-        />
+        app:showAsAction="ifRoom|collapseActionView" />
 </menu>

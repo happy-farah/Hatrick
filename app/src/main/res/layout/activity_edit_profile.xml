@@ -11,8 +11,6 @@
         android:layout_marginLeft="30dp"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal">
-
-
         <TextView
             android:id="@+id/nameLab"
             android:layout_width="wrap_content"
@@ -29,7 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.156" />
-
         <EditText
             android:id="@+id/firstNameBox"
             android:layout_width="152dp"
@@ -45,7 +42,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameLab"
             app:layout_constraintVertical_bias="0.012" />
-
         <EditText
             android:id="@+id/lastNameBox"
             android:layout_width="152dp"
@@ -62,7 +58,6 @@
             app:layout_constraintStart_toStartOf="@id/nameLab"
             app:layout_constraintTop_toBottomOf="@id/nameLab"
             app:layout_constraintVertical_bias="0.011" />
-
         <TextView
             android:id="@+id/BDLab"
             android:layout_width="match_parent"
@@ -79,7 +74,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.311" />
-
         <EditText
             android:id="@+id/dayBox"
             android:layout_width="66dp"
@@ -95,7 +89,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.377" />
-
         <TextView
             android:id="@+id/dash1"
             android:layout_width="13dp"
@@ -110,7 +103,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.39" />
-
         <EditText
             android:id="@+id/monBox"
             android:layout_width="66dp"
@@ -127,7 +119,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.377" />
-
         <TextView
             android:id="@+id/dash2"
             android:layout_width="13dp"
@@ -142,7 +133,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.389" />
-
         <EditText
             android:id="@+id/yearBox"
             android:layout_width="80dp"
@@ -159,7 +149,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.377" />
-
         <RadioGroup
             android:id="@+id/gender"
             android:layout_width="309dp"
@@ -173,9 +162,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.518">
-
             <TextView
-
                 android:layout_width="114dp"
                 android:layout_height="wrap_content"
                 android:text="Gender"
@@ -188,24 +175,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.519" />
-
-
             <RadioButton
                 android:id="@+id/maleRadio"
                 android:layout_width="87dp"
                 android:layout_height="55dp"
                 android:text="Male"
                 android:textColor="@color/textGray" />
-
             <RadioButton
                 android:id="@+id/femaleRadio"
                 android:layout_width="105dp"
                 android:layout_height="55dp"
                 android:text="Female"
                 android:textColor="@color/textGray" />
-
         </RadioGroup>
-
         <TextView
             android:id="@+id/phoneLab"
             android:layout_width="wrap_content"
@@ -222,8 +204,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.596" />
-
-
         <EditText
             android:id="@+id/phoneBox"
             android:layout_width="310dp"
@@ -261,8 +241,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="15dp"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    >
+    android:layout_gravity="center">
         <Button
             android:id="@+id/saveBtn"
             android:layout_width="wrap_content"
@@ -270,8 +249,7 @@
             android:text="Save Information"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
     <Button
         android:id="@+id/changePass"
         android:layout_width="wrap_content"
@@ -279,10 +257,7 @@
         android:text="Change Password"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_gravity="center"
-
-
-        />
+        android:layout_gravity="center" />
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="wrap_content"
@@ -292,10 +267,7 @@
             android:textColor="@color/textGray"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
     </LinearLayout>
-
-
 </LinearLayout>
 </LinearLayout>

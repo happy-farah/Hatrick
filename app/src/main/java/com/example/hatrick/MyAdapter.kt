@@ -49,7 +49,6 @@ class MyAdapter(var c: Context, private var FieldList : ArrayList<Field>, privat
         {
             fieldname.setTextColor(android.graphics.Color.parseColor("#4361ee"))
         }
-
         return MyViewHolder(itemView)
     }
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

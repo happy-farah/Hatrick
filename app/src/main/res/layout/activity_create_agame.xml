@@ -5,19 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateAGame"
-    android:orientation="vertical"
-    >
-
+    android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/white"
             android:layout_marginBottom="7dp"
-            android:layout_gravity="center_horizontal"
-
-            >
-
+            android:layout_gravity="center_horizontal">
             <Switch
                 android:id="@+id/publicity"
                 android:layout_width="match_parent"
@@ -30,7 +25,6 @@
                 android:layout_marginRight="40dp"
                 android:textColor="@color/textGray"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
-
             <TextView
                 android:id="@+id/dateTxt"
                 android:layout_width="match_parent"
@@ -39,7 +33,6 @@
                 android:textSize="18sp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"/>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,9 +45,7 @@
                     android:hint="DD"
                     android:inputType="number"
                     android:textColor="@color/textGray"
-                    android:layout_marginLeft="0dp"
-                    />
-
+                    android:layout_marginLeft="0dp" />
                 <TextView
                     android:id="@+id/dash1"
                     android:layout_width="13dp"
@@ -62,9 +53,7 @@
                     android:text="/"
                     android:textSize="34sp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    />
-
+                    android:layout_marginTop="10dp" />
                 <EditText
                     android:id="@+id/monBox"
                     android:layout_width="66dp"
@@ -73,9 +62,7 @@
                     android:hint="MM"
                     android:inputType="number"
                     android:textColor="@color/textGray"
-                    android:layout_marginLeft="20dp"
-                    />
-
+                    android:layout_marginLeft="20dp" />
                 <TextView
                     android:id="@+id/dash2"
                     android:layout_width="13dp"
@@ -83,9 +70,7 @@
                     android:text="/"
                     android:textSize="34sp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    />
-
+                    android:layout_marginTop="10dp" />
                 <EditText
                     android:id="@+id/yearBox"
                     android:layout_width="70dp"
@@ -94,24 +79,8 @@
                     android:hint="YYYY"
                     android:inputType="number"
                     android:textColor="@color/textGray"
-                    android:layout_marginLeft="20dp"
-                    />
+                    android:layout_marginLeft="20dp" />
             </LinearLayout>
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/test"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Date goes here!"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="24sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                app:layout_constraintRight_toRightOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
@@ -119,9 +88,7 @@
                 android:text="Start time"
                 android:textSize="18sp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
-                />
-
+                android:layout_marginTop="30dp" />
             <EditText
                 android:id="@+id/time"
                 android:layout_width="70dp"
@@ -130,8 +97,6 @@
                 android:hint="HH"
                 android:layout_marginTop="-35dp"
                 android:layout_marginLeft="130dp"/>
-
-
             <TextView
                 android:id="@+id/Hnumber"
                 android:layout_width="150dp"
@@ -165,8 +130,7 @@
                     android:layout_height="50dp"
                     android:textSize="25sp"
                     android:text="+"
-                    android:layout_marginLeft="20dp"
-                    />
+                    android:layout_marginLeft="20dp" />
             </LinearLayout>
             <Button
                 android:id="@+id/checktime"
@@ -175,17 +139,12 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:text="Check time" />
-
-
             <LinearLayout
                 android:id="@+id/forPublic"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="0dp"
-                android:orientation="vertical"
-                >
-
-
+                android:orientation="vertical">
                 <TextView
                     android:id="@+id/number"
                     android:layout_width="150dp"
@@ -193,47 +152,35 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
                     android:text="Number of players you want to reserve for"
-
                     android:textSize="18dp" />
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="185dp"
                     android:layout_marginTop="-60dp">
-
                     <Button
                         android:id="@+id/minusBtnmy"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:text="-"
-                        android:textSize="25sp"
-
-                        />
-
+                        android:textSize="25sp" />
                     <TextView
                         android:id="@+id/valuemy"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:textAlignment="center"
                         android:text="1"
                         android:textSize="25sp"
-                        android:textStyle="bold"
-
-                        />
-
+                        android:textStyle="bold" />
                     <Button
                         android:id="@+id/plusBtnmy"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:text="+"
-                        android:textSize="25sp"
-
-
-                        />
+                        android:textSize="25sp" />
                 </LinearLayout>
-
                 <TextView
                     android:id="@+id/number2"
                     android:layout_width="150dp"
@@ -241,85 +188,68 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="40dp"
                     android:text="Minimum number of players for the game"
-
                     android:textSize="18dp" />
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="185dp"
                     android:layout_marginTop="-60dp">
-
                     <Button
                         android:id="@+id/minusBtnmin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:text="-"
-                        android:textSize="25sp"
-
-                        />
-
+                        android:textSize="25sp" />
                     <TextView
                         android:id="@+id/valuemin"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:textAlignment="center"
                         android:text="1"
                         android:textSize="25sp"
-                        android:textStyle="bold"
-
-                        />
-
+                        android:textStyle="bold" />
                     <Button
                         android:id="@+id/plusBtnmin"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="5dp"
                         android:text="+"
-                        android:textSize="25sp"
-
-
-                        />
+                        android:textSize="25sp" />
                 </LinearLayout>
-
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="80dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="80dp">
-
                     <TextView
                         android:id="@+id/priceTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:text="Price per person"
+                        android:text="Price per person per hour"
                         android:textSize="18sp" />
-
                     <TextView
                         android:id="@+id/pricePP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
                         android:text="0"
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/reservPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="10dp"
-                >
+                android:layout_marginTop="10dp">
                 <TextView
                     android:id="@+id/rPriceTxt"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Reservation price"
-                    android:layout_marginLeft="80dp"                    android:textSize="18sp" />
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:text="Reservation price per hour"
+                    android:textSize="18sp" />
                 <TextView
                     android:id="@+id/priceR"
                     android:layout_width="wrap_content"
@@ -346,7 +276,5 @@
                 android:layout_marginRight="40dp"
                 android:text="create game"
                 android:layout_gravity="center"/>
-
-
         </LinearLayout>
 </ScrollView>
